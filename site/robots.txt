@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elospeed.github.io/StemPacker/sitemap.xml

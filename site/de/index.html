@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StemPacker – eigene Stems im Stapel zu Traktor-Stem-Dateien packen</title>
+<meta name="description" content="Elospeed StemPacker macht aus fertigen Spuren (Master und bis zu vier Stems aus der DAW, von einer 5.1-DVD oder aus einem anderen Programm) Traktor-Stem-Dateien (.stem.mp4), ohne KI und im Stapel. Gratis, Open Source, portabel, für Windows.">
+<meta name="keywords" content="stem.mp4 erstellen, Traktor Stems aus eigenen Spuren, Stem Creator Stapel, 5.1 DVD zu Stems, DAW Stems Traktor, Traktor Pro 4, ALAC Stems, Windows, gratis, Open Source">
+<meta name="author" content="Elospeed">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://elospeed.github.io/StemPacker/de/">
+<link rel="alternate" hreflang="en" href="https://elospeed.github.io/StemPacker/">
+<link rel="alternate" hreflang="de" href="https://elospeed.github.io/StemPacker/de/">
+<link rel="alternate" hreflang="x-default" href="https://elospeed.github.io/StemPacker/">
+<meta name="theme-color" content="#121315">
+<link rel="icon" type="image/png" href="../img/icon-192.png">
+<link rel="apple-touch-icon" href="../img/icon-192.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elospeed StemPacker">
+<meta property="og:title" content="StemPacker – eigene Stems als Traktor-Stem-Dateien">
+<meta property="og:description" content="Master und bis zu vier Stems pro Song werden zu einer .stem.mp4, ohne KI, für Hunderte Songs in einem Durchgang. Gratis und Open Source für Windows.">
+<meta property="og:url" content="https://elospeed.github.io/StemPacker/de/">
+<meta property="og:image" content="https://elospeed.github.io/StemPacker/img/og-image-de.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StemPacker – eigene Stems als Traktor-Stem-Dateien">
+<meta name="twitter:description" content="Master und bis zu vier Stems pro Song werden zu einer .stem.mp4, ohne KI, für Hunderte Songs in einem Durchgang. Gratis und Open Source für Windows.">
+<meta name="twitter:image" content="https://elospeed.github.io/StemPacker/img/og-image-de.png">
+
+<link rel="stylesheet" href="../style.css">
+
+<script>
+  // Sprache: wer oben Englisch gewählt hat, kommt auf die englische Seite.
+  // Wer oben die Sprache umschaltet, behält seine Wahl (gilt für alle Elospeed-Seiten).
+  (function () {
+    var wahl = null;
+    try { wahl = localStorage.getItem('elospeed-lang'); } catch (e) {}
+    var browser = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    if (wahl === 'en') location.replace('../' + location.hash);
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Elospeed StemPacker",
+  "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+  "applicationCategory": "MultimediaApplication",
+  "description": "Stapel-Werkzeug, das fertige Spuren (Master und bis zu vier Stems) ohne KI-Trennung zu Traktor-Stem-Dateien (.stem.mp4) verpackt, mit eigenen Stem-Namen und Farben, Tags und Cover vom Master.",
+  "url": "https://elospeed.github.io/StemPacker/de/",
+  "downloadUrl": "https://github.com/Elospeed/StemPacker/releases/latest",
+  "softwareVersion": "0.1",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "Elospeed", "url": "https://github.com/Elospeed" },
+  "screenshot": "https://elospeed.github.io/StemPacker/img/stempacker-de.png"
+}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../img/icon-192.png" alt="" width="30" height="30">Elospeed StemPacker</a>
+    <nav>
+      <a class="hide-m" href="#features">Funktionen</a>
+      <a class="hide-m" href="#how">So geht's</a>
+      <a class="hide-m" href="#faq">FAQ</a>
+      <a class="hide-m" href="https://github.com/Elospeed/StemPacker">GitHub</a>
+      <a class="lang" href="../" hreflang="en" lang="en" onclick="try{localStorage.setItem('elospeed-lang','en')}catch(e){}">English</a>
+    </nav>
+  </div>
+  <div class="stripes"><i></i><i></i><i></i><i></i></div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Eigene Stems als<br><span class="grad">Traktor-Stem-Dateien</span>, im Stapel</h1>
+    <p class="lead">Der StemPacker nimmt Spuren, die du schon hast, einen Master und bis zu vier Stems pro Song, und packt sie in eine <code>.stem.mp4</code>, die Traktor als Stem-Datei lädt. Keine KI, keine Trennung: deine Dateien bleiben genau so, wie sie sind. Hunderte Songs in einem Durchgang, aus der DAW, von einer 5.1-DVD oder aus einem anderen Programm.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/Elospeed/StemPacker/releases/latest">⬇ Download für Windows</a>
+      <a class="btn" href="https://github.com/Elospeed/StemPacker">Quelltext auf GitHub</a>
+    </div>
+    <ul class="facts">
+      <li>Gratis &amp; MIT-Lizenz</li>
+      <li>Windows 10 / 11</li>
+      <li>Portabel, ohne Installation</li>
+      <li>Ohne KI, deine Dateien wie sie sind</li>
+      <li>Stapel für ganze Sammlungen</li>
+      <li>Deutsch, Englisch, Spanisch</li>
+    </ul>
+    <figure class="shot hero-shot">
+      <div class="bar"><img src="../img/icon-32.png" alt=""><span>Elospeed StemPacker 0.1</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
+      <img src="../img/stempacker-de.png" width="900" height="488" alt="StemPacker-Fenster: Vorlage 5.1-DVD, Ordner und Namensmuster für Master und Stem 1 bis 4 mit den Stem-Namen Front, LFE, Center, Rear und ihren Farben, darunter die Songliste">
+    </figure>
+  </div>
+</section>
+
+<section id="features" class="alt">
+  <div class="wrap">
+    <h2>Gemacht für Stems, die es schon gibt</h2>
+    <p class="sub">Traktors eigener Stem Creator packt einen Song nach dem anderen. Der StemPacker macht das für einen ganzen Ordner.</p>
+    <div class="grid">
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Ordner und Muster je Spur</h3><p>Ein Stern steht für den Songnamen: <code>* (DOWNMIX #1)</code> findet den Master, <code>* (A)</code> bis <code>* (D)</code> die Stems, auch in verschiedenen Ordnern. Alles in einem Ordner geht auch (<code>*_drums</code>, <code>*_bass</code> …).</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Deine Namen und Farben</h3><p>Jeder Stem bekommt den Namen und die Farbe, die du einstellst, zum Beispiel Front, LFE, Center und Rear für 5.1-Kanäle. Traktor zeigt sie direkt am Deck.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags und Cover vom Master</h3><p>Titel, Interpret, Album, BPM, Tonart, Label und Cover kommen aus der Master-Datei. Kein Titel? Dann gilt der Songname. Kein Cover? <code>cover.jpg</code> oder <code>&lt;Song&gt;.jpg</code> aus dem Ordner.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC oder verlustfrei ALAC</h3><p>AAC 320 kbit/s wie Traktors eigene Stems, ALAC verlustfrei 16 Bit oder ALAC 24 Bit mit der Original-Abtastrate (noch im Test).</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Lücken im Griff</h3><p>Songs ohne fertigen Master: aus den Stems mischen, ohne Pegeländerung. Ein Stem fehlt? Mit Stille füllen oder den Song überspringen.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Anhören vor Traktor</h3><p>Im Download ist der StemPlayer dabei: fertige Datei öffnen, jeden Stem stumm oder solo schalten und das Ergebnis prüfen, bevor es in die Traktor-Sammlung kommt.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>So geht's</h2>
+    <p class="sub">Vier Schritte, keine Installation.</p>
+    <ol class="steps">
+      <li><strong>Herunterladen und entpacken</strong><code>StemPacker-&lt;Version&gt;.zip</code> laden, irgendwo entpacken und <code>StemPacker.exe</code> starten. Die Anleitung <code>StemPacker-User-Guide.pdf</code> liegt im selben Ordner (Englisch).</li>
+      <li><strong>Ordner und Muster einstellen</strong>Vorlage wählen oder eigene Muster eintragen, dann die Ordner wählen (oder einen Ordner aufs Fenster ziehen).</li>
+      <li><strong>Songs suchen</strong>Die Liste zeigt jeden Song, wie viele Dateien gefunden wurden und was fehlt.</li>
+      <li><strong>Alle packen</strong>Jeder Song wird zu <code>&lt;Song&gt;.stem.mp4</code> neben dem Master oder in einem Ordner deiner Wahl. In Traktor Pro 4 laden, fertig.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap split">
+    <div>
+      <h2>Ergebnis prüfen mit dem StemPlayer</h2>
+      <p class="sub" style="margin-bottom:0">Der StemPlayer ist im Download dabei. Er spielt alle vier Stems einer fertigen Datei synchron ab, mit Stumm, Solo und Lautstärke je Stem, und zeigt sie mit den eingestellten Namen und Farben.</p>
+    </div>
+    <figure class="shot">
+      <div class="bar"><span>Elospeed StemPlayer</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
+      <img src="../img/stemplayer-en.png" width="820" height="782" alt="StemPlayer mit einer gepackten Datei: vier Stems Front, LFE, Center und Rear in ihren Farben, je mit Stumm- und Solo-Knopf und Lautstärkeregler" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Teil der StemMaker-Familie</h2>
+    <div class="family">
+      <img src="../img/stemmaker-icon-32.png" alt="" width="48" height="48">
+      <p><a href="https://elospeed.github.io/StemMaker/de/"><strong>Elospeed StemMaker</strong></a> trennt deine eigene Musik mit KI in Stems und packt sie als Traktor-Stem-Dateien. Der StemPacker ist für den anderen Fall: die Stems gibt es schon, es fehlt nur die Stem-Datei.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap">
+    <h2>Fragen und Antworten</h2>
+    <details>
+      <summary>Ist der StemPacker wirklich gratis?</summary>
+      <p>Ja. Der StemPacker ist Open Source unter der MIT-Lizenz. Keine Werbung, kein Konto, keine Bezahlversion.</p>
+    </details>
+    <details>
+      <summary>Trennt er Musik in Stems?</summary>
+      <p>Nein. Der StemPacker benutzt keine KI. Er verpackt Dateien, die du schon hast. Um einen fertigen Song in Stems zu trennen, gibt es <a href="https://elospeed.github.io/StemMaker/de/">StemMaker</a>.</p>
+    </details>
+    <details>
+      <summary>Verändert er meine Dateien?</summary>
+      <p>Nein. Master- und Stem-Dateien werden nur gelesen. Der StemPacker schreibt neue <code>.stem.mp4</code>-Dateien. Wie bei jedem neuen Werkzeug bitte zuerst mit Kopien von ein paar Songs ausprobieren.</p>
+    </details>
+    <details>
+      <summary>Welche Dateien kann er lesen?</summary>
+      <p>WAV, FLAC, AIFF, MP3, M4A, OGG, Opus, W64 und WavPack. Mono-Dateien (zum Beispiel LFE oder Center) kommen auf beide Seiten.</p>
+    </details>
+    <details>
+      <summary>Kann er DVDs einlesen oder .cue-Dateien schneiden?</summary>
+      <p>Nein, mit Absicht. Den Ton holst du mit den Werkzeugen, die du schon benutzt, das Verpacken macht dann der StemPacker.</p>
+    </details>
+    <details>
+      <summary>Windows zeigt „Der Computer wurde durch Windows geschützt“. Ist das schlimm?</summary>
+      <p>Der StemPacker ist nicht digital signiert, weil Zertifikate jedes Jahr Geld kosten. Auf „Weitere Informationen“ und dann „Trotzdem ausführen“ klicken. Der ganze Quelltext liegt auf GitHub, und du kannst den Download auf VirusTotal prüfen oder selbst bauen.</p>
+    </details>
+    <details>
+      <summary>Wo kann ich Fragen stellen oder Ideen vorschlagen?</summary>
+      <p>In den <a href="https://github.com/Elospeed/StemMaker/discussions">GitHub Discussions</a> von StemMaker. Lesen geht ohne Konto, schreiben braucht ein kostenloses GitHub-Konto.</p>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="text-align:center">
+    <h2>Bereit, deine Stems zu verpacken?</h2>
+    <p class="sub" style="margin:0 auto 26px">ZIP laden, den Beispielordner ausprobieren, dann deine eigenen Songs.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/Elospeed/StemPacker/releases/latest">⬇ StemPacker herunterladen</a>
+      <a class="btn" href="https://github.com/Elospeed/StemPacker/blob/main/LIESMICH.md">Anleitung lesen</a>
+    </div>
+    <p class="support">Der StemPacker ist ein Ein-Personen-Hobbyprojekt und bleibt gratis. Wenn er dir Zeit spart, kannst du mir auf <a href="https://ko-fi.com/elospeed">Ko-fi einen Kaffee spendieren</a> ☕ oder einfach <a href="https://github.com/Elospeed/StemPacker">einen Stern auf GitHub geben</a>. Beides ganz freiwillig.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© Elospeed · Der StemPacker ist Open Source unter der <a href="https://github.com/Elospeed/StemPacker/blob/main/LICENSE">MIT-Lizenz</a> · <a href="https://elospeed.github.io/">Weitere Tools von Elospeed</a> · <a href="https://www.youtube.com/@elospeed">YouTube</a></div>
+    <div>Traktor ist eine Marke von Native Instruments. Der StemPacker hat nichts mit Native Instruments zu tun. FFmpeg ist eine Marke von Fabrice Bellard.</div>
+  </div>
+</footer>
+
+</body>
+</html>
