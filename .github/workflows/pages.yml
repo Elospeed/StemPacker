@@ -27,6 +27,9 @@ concurrency:
 
 jobs:
   deploy:
+    # Solange das Repository privat ist, gibt es keine Projektseite (GitHub
+    # Pages braucht ein öffentliches Repository). Dann wird nichts gemacht.
+    if: ${{ !github.event.repository.private }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
