@@ -61,7 +61,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="StemPacker"/>
+      <Filename Value="../bin/StemPacker"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
