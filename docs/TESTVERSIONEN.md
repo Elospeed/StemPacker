@@ -26,5 +26,5 @@ Für den ersten Tester (Version 0.1) gab es auf Speedys Wunsch ein Vor-Release `
 
 ## Offizielles Release
 
-- Speedy legt Releases selbst an (Tag `v<Version>`). Als Anhang dient das ZIP `StemPacker-<Version>.zip` aus dem Build-Artefakt des Merge-Commits, die SHA-256 kommt in den Release-Text.
+- Speedy startet das Release selbst: Actions → „Release erstellen“ → Run workflow → Version (z. B. `0.2`). Der Workflow `.github/workflows/release.yml` prüft die Version, baut das ZIP `StemPacker-<Version>.zip` neu, legt das Release `v<Version>` mit dem CHANGELOG-Abschnitt und der SHA-256 als Text an und hängt das ZIP an. Kein Ko-fi- oder Spendenhinweis im Release-Text.
 - Testversionen gehören nicht ins Repository: jede eingecheckte Exe bliebe für immer im Git-Verlauf.
