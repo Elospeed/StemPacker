@@ -1,4 +1,4 @@
-# Elospeed StemPacker 0.1
+# Elospeed StemPacker 0.2
 
 **von Elospeed**
 
@@ -8,7 +8,7 @@ Macht aus **fertigen Einzelspuren Traktor-Stem-Dateien** (`*.stem.mp4`), **ohne 
 
 Der StemPacker gehört zur Familie von [Elospeed StemMaker](https://github.com/Elospeed/StemMaker). StemMaker *trennt* Musik mit KI in Stems, der StemPacker *verpackt* Stems, die es schon gibt.
 
-> **Stand:** erste Testversion (0.1). Bitte mit Kopien der eigenen Dateien testen.
+> **Stand:** Version 0.2, mit 178 Songs in Traktor Pro 4 getestet. Bitte mit Kopien der eigenen Dateien arbeiten.
 
 ## Funktionen
 
@@ -20,6 +20,7 @@ Der StemPacker gehört zur Familie von [Elospeed StemMaker](https://github.com/E
 - **Master aus den Stems mischen**, **fehlende Stems still füllen**, fertige Songs überschreiben oder überspringen.
 - Die Quelldateien werden nur gelesen, nie verändert. Log `logs\StemPacker.log`.
 - Deutsch, Englisch und Spanisch. Passt bei 100 % bis 200 % Windows-Skalierung.
+- **Hilfreiche Prüfungen:** fehlt ein Stem, zeigt die Liste den gesuchten Dateinamen und, wenn es eine gibt, eine ähnlich heissende Datei. Ist eine Spur kürzer oder länger als der Master, gibt es eine Warnung.
 
 ## Download
 
@@ -31,6 +32,14 @@ Der StemPacker gehört zur Familie von [Elospeed StemMaker](https://github.com/E
 - `tools\ffmpeg.exe`: FFmpeg (LGPL), macht die eigentliche Audioarbeit
 
 Windows SmartScreen kann warnen, weil die Exe nicht signiert ist: „Weitere Informationen“ → „Trotzdem ausführen“.
+
+## Häufige Fragen
+
+**Meine Stem-Datei lädt nicht in ein Traktor-Track-Deck.** So arbeitet Traktor: Stem-Dateien laden nur in Stem-Decks, auch die aus dem Stem Creator von Native Instruments. Das Deck auf Stem-Deck umstellen.
+
+**Ein Song zeigt „fehlt“.** Die Liste nennt den gesuchten Dateinamen, z. B. `Stem 2 „Hallo (B)“`, und eine ähnlich heissende Datei, wenn sie eine findet. Datei umbenennen oder Muster anpassen.
+
+**„Achtung: Stem 2 ist 1,3 s kürzer als der Master“.** Der Song wurde trotzdem gepackt. In Traktor anhören, ob alle Stems zusammenpassen.
 
 ## Selbst bauen
 
@@ -47,6 +56,10 @@ Entwickler-Dokumente: [CHANGELOG](CHANGELOG.md), [ROADMAP](ROADMAP.md), [TODO](T
 ## Unterstützen
 
 Der StemPacker ist ein Ein-Personen-Hobbyprojekt. Wenn er dir Zeit spart, kannst du mir auf [Ko-fi einen Kaffee spendieren](https://ko-fi.com/elospeed) ☕. Ganz freiwillig, das Programm bleibt so oder so gratis.
+
+## Danke
+
+An **Cuiusquemodi** für die Idee, den Test mit 178 Songs und viele Rückmeldungen.
 
 ## Lizenz
 

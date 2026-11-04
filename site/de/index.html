@@ -34,13 +34,13 @@
 <link rel="stylesheet" href="../style.css">
 
 <script>
-  // Sprache: wer oben Englisch gewählt hat, kommt auf die englische Seite.
+  // Sprache: deutscher Browser -> deutsche Seite, alle anderen bleiben hier.
   // Wer oben die Sprache umschaltet, behält seine Wahl (gilt für alle Elospeed-Seiten).
   (function () {
     var wahl = null;
     try { wahl = localStorage.getItem('elospeed-lang'); } catch (e) {}
     var browser = (navigator.languages && navigator.languages[0]) || navigator.language || '';
-    if (wahl === 'en') location.replace('../' + location.hash);
+    if (wahl === 'en' || (!wahl && !/^de\b/i.test(browser))) location.replace('../' + location.hash);
   })();
 </script>
 
@@ -54,7 +54,7 @@
   "description": "Stapel-Werkzeug, das fertige Spuren (Master und bis zu vier Stems) ohne KI-Trennung zu Traktor-Stem-Dateien (.stem.mp4) verpackt, mit eigenen Stem-Namen und Farben, Tags und Cover vom Master.",
   "url": "https://elospeed.github.io/StemPacker/de/",
   "downloadUrl": "https://github.com/Elospeed/StemPacker/releases/latest",
-  "softwareVersion": "0.1",
+  "softwareVersion": "0.2",
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -98,8 +98,8 @@
       <li>Deutsch, Englisch, Spanisch</li>
     </ul>
     <figure class="shot hero-shot">
-      <div class="bar"><img src="../img/icon-32.png" alt=""><span>Elospeed StemPacker 0.1</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
-      <img src="../img/stempacker-de.png" width="900" height="488" alt="StemPacker-Fenster: Vorlage 5.1-DVD, Ordner und Namensmuster für Master und Stem 1 bis 4 mit den Stem-Namen Front, LFE, Center, Rear und ihren Farben, darunter die Songliste">
+      <div class="bar"><img src="../img/icon-32.png" alt=""><span>Elospeed StemPacker 0.2</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
+      <img src="../img/stempacker-de.png" width="900" height="640" alt="StemPacker-Fenster: Vorlage 5.1-DVD, Ordner und Namensmuster für Master und Stem 1 bis 4 mit den Stem-Namen Front, LFE, Center, Rear und ihren Farben, darunter die Songliste">
     </figure>
   </div>
 </section>
@@ -113,7 +113,7 @@
       <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Deine Namen und Farben</h3><p>Jeder Stem bekommt den Namen und die Farbe, die du einstellst, zum Beispiel Front, LFE, Center und Rear für 5.1-Kanäle. Traktor zeigt sie direkt am Deck.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags und Cover vom Master</h3><p>Titel, Interpret, Album, BPM, Tonart, Label und Cover kommen aus der Master-Datei. Kein Titel? Dann gilt der Songname. Kein Cover? <code>cover.jpg</code> oder <code>&lt;Song&gt;.jpg</code> aus dem Ordner.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC oder verlustfrei ALAC</h3><p>AAC 320 kbit/s wie Traktors eigene Stems, ALAC verlustfrei 16 Bit oder ALAC 24 Bit mit der Original-Abtastrate (noch im Test).</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Lücken im Griff</h3><p>Songs ohne fertigen Master: aus den Stems mischen, ohne Pegeländerung. Ein Stem fehlt? Mit Stille füllen oder den Song überspringen.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Lücken im Griff</h3><p>Songs ohne fertigen Master: aus den Stems mischen, ohne Pegeländerung. Ein Stem fehlt? Die Liste zeigt den gesuchten Dateinamen und, wenn es eine gibt, eine ähnlich heissende Datei. Mit Stille füllen oder den Song überspringen. Ist eine Spur kürzer oder länger als der Master, gibt es eine Warnung.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Anhören vor Traktor</h3><p>Im Download ist der StemPlayer dabei: fertige Datei öffnen, jeden Stem stumm oder solo schalten und das Ergebnis prüfen, bevor es in die Traktor-Sammlung kommt.</p></div>
     </div>
   </div>
@@ -173,6 +173,14 @@
     <details>
       <summary>Welche Dateien kann er lesen?</summary>
       <p>WAV, FLAC, AIFF, MP3, M4A, OGG, Opus, W64 und WavPack. Mono-Dateien (zum Beispiel LFE oder Center) kommen auf beide Seiten.</p>
+    </details>
+    <details>
+      <summary>Meine Stem-Datei lädt nicht in ein Traktor-Track-Deck. Warum?</summary>
+      <p>So arbeitet Traktor: Stem-Dateien laden nur in Stem-Decks, auch die aus dem Stem Creator von Native Instruments. Das Deck auf Stem-Deck umstellen und die Datei nochmals laden.</p>
+    </details>
+    <details>
+      <summary>Ein Song zeigt „fehlt“. Was nun?</summary>
+      <p>Die Liste nennt den gesuchten Dateinamen, zum Beispiel <code>Stem 2 „Hallo (B)“</code>, und eine ähnlich heissende Datei, wenn sie eine findet (andere Leerzeichen, Satzzeichen oder Gross-/Kleinschreibung). Datei umbenennen oder Muster anpassen, dann nochmals „Songs suchen“.</p>
     </details>
     <details>
       <summary>Kann er DVDs einlesen oder .cue-Dateien schneiden?</summary>

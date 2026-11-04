@@ -26,6 +26,10 @@
 
   Versionen:
     0.1  (01.11.2026)  Erste Testversion
+    0.2  (04.11.2026)  Fehlt ein Stem: gesuchter Dateiname und ähnliche Datei
+                       in der Liste; Längenprüfung (Spur kürzer/länger als
+                       der Master); Info-Knopf mit Dank an Cuiusquemodi;
+                       gewählte Zeile zeigt den ganzen Status unten
   ============================================================================ }
 unit packerform;
 
@@ -41,8 +45,9 @@ uses
 
 const
   APP_TITLE = 'Elospeed StemPacker';
-  APP_VER   = '0.1';
+  APP_VER   = '0.2';
   KOFI_URL  = 'https://ko-fi.com/elospeed';
+  PAGE_URL  = 'https://elospeed.github.io/StemPacker/';
 
 type
   { Eine Zeile pro Spur: Name, Ordner, Muster, Stem-Name, Farbe }
@@ -77,6 +82,7 @@ type
     FBtnStart  : TButton;
     FBtnCancel : TButton;
     FBtnLog    : TButton;
+    FBtnInfo   : TButton;
     FStatus    : TLabel;
     FKofi      : TPaintBox;
     FKofiHover : Boolean;
@@ -86,6 +92,7 @@ type
     FBusy      : Boolean;
     FCancel    : Boolean;
     FCloseAfter: Boolean;
+    FWarned    : Integer;    // Songs mit Längen-Warnung beim letzten Packen
     FLoading   : Boolean;
     FLogFile   : string;
 
@@ -105,6 +112,7 @@ type
     function  CheckInput(Quiet: Boolean): Boolean;
     procedure ScanSongs;
     procedure ShowSongs;
+    function  CheckLengths(Song: TPackSong): string;
     procedure SetRowStatus(i: Integer; const S: string);
     function  PackSong(Song: TPackSong; Row: Integer): Boolean;
     procedure PackAll;
@@ -126,6 +134,8 @@ type
     procedure BtnStartClick(Sender: TObject);
     procedure BtnCancelClick(Sender: TObject);
     procedure BtnLogClick(Sender: TObject);
+    procedure BtnInfoClick(Sender: TObject);
+    procedure ListSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure KofiPaint(Sender: TObject);
     procedure KofiClick(Sender: TObject);
     procedure KofiEnter(Sender: TObject);
@@ -588,6 +598,13 @@ begin
   FBtnLog.BorderSpacing.Around := Scale96ToForm(4);
   FBtnLog.Caption := _('Log anzeigen');
   FBtnLog.OnClick := @BtnLogClick;
+  FBtnInfo := TButton.Create(Self);
+  FBtnInfo.Parent := Bottom;
+  FBtnInfo.Align := alRight;
+  FBtnInfo.Width := Scale96ToForm(90);
+  FBtnInfo.BorderSpacing.Around := Scale96ToForm(4);
+  FBtnInfo.Caption := _('Info');
+  FBtnInfo.OnClick := @BtnInfoClick;
 
   { --- Liste der Songs (wächst mit dem Fenster) ----------------------- }
   FList := TListView.Create(Self);
@@ -600,10 +617,13 @@ begin
   FList.ReadOnly := True;
   FList.RowSelect := True;
   FList.HideSelection := False;
-  with FList.Columns.Add do begin Caption := _('Song');    Width := Scale96ToForm(260); end;
-  with FList.Columns.Add do begin Caption := _('Dateien'); Width := Scale96ToForm(80);  end;
-  with FList.Columns.Add do begin Caption := _('Status');  Width := Scale96ToForm(230); end;
+  with FList.Columns.Add do begin Caption := _('Song');    Width := Scale96ToForm(220); end;
+  with FList.Columns.Add do begin Caption := _('Dateien'); Width := Scale96ToForm(60);  end;
+  with FList.Columns.Add do begin Caption := _('Status');  Width := Scale96ToForm(360); end;
   with FList.Columns.Add do begin Caption := _('Ziel');    Width := Scale96ToForm(300); end;
+  { gewählte Zeile: ganzer Status unten in der Fusszeile (die Spalte ist
+    für lange Meldungen zu schmal) }
+  FList.OnSelectItem := @ListSelectItem;
 end;
 
 { ============================================================================
@@ -860,26 +880,64 @@ end;
 
 procedure TPackerForm.ShowSongs;
 var
-  i, Ready: Integer;
+  i, r, Ready: Integer;
   S: TPackSong;
   It: TListItem;
   Why, Target: string;
   Opt: TPackOptions;
+  Rules: TPackRules;
+  Lists: array[0..ROLE_COUNT - 1] of TStringList;
 
+  { Dateiliste der Rolle, erst bei Bedarf gelesen }
+  function RoleList(Role: Integer): TStringList;
+  var Paths: TStringList;
+  begin
+    if Lists[Role] = nil then
+    begin
+      Lists[Role] := TStringList.Create;
+      Paths := TStringList.Create;
+      try
+        ListAudio(RoleFolder(Rules, Role), Rules.SubFolders, Lists[Role], Paths);
+      finally
+        Paths.Free;
+      end;
+    end;
+    Result := Lists[Role];
+  end;
+
+  { fehlende Spuren mit gesuchtem Dateinamen und, wenn es eine gibt, einer
+    ähnlich heissenden Datei. Details kommen ins Log. }
   function MissingText(Song: TPackSong): string;
-  var r: Integer;
+  var
+    q: Integer;
+    Exp, Sim, Part: string;
   begin
     Result := '';
-    for r := 0 to ROLE_COUNT - 1 do
-      if (Song.Files[r] = '') and not ((r = 0) and Opt.MixMaster) then
+    for q := 0 to ROLE_COUNT - 1 do
+      if (Song.Files[q] = '') and not ((q = 0) and Opt.MixMaster) then
       begin
+        Exp := ExpectedName(Rules.Patterns[q], Song.Name);
+        Sim := FindSimilar(RoleList(q), RoleFolder(Rules, q), Exp, Song);
+        Part := Format(_('%s „%s“'), [RoleCaption(q), Exp]);
+        if Sim <> '' then
+          Part := Part + ' (' + Format(_('ähnlich: „%s“'), [ExtractFileName(Sim)]) + ')';
         if Result <> '' then Result := Result + ', ';
-        Result := Result + RoleCaption(r);
+        Result := Result + Part;
+        if Sim <> '' then
+          Log(Format('  %s%s: %s fehlt, gesucht %s%s.*, ähnlich: %s',
+            [Song.SubDir, Song.Name, RoleCaption(q), RoleFolder(Rules, q),
+             Song.SubDir + Exp, RoleFolder(Rules, q) + Sim]))
+        else
+          Log(Format('  %s%s: %s fehlt, gesucht %s%s.*',
+            [Song.SubDir, Song.Name, RoleCaption(q), RoleFolder(Rules, q),
+             Song.SubDir + Exp]));
       end;
   end;
 
 begin
   Opt := GetOptions;
+  Rules := GetRules;
+  for r := 0 to ROLE_COUNT - 1 do Lists[r] := nil;
   Ready := 0;
   FList.Items.BeginUpdate;
   try
@@ -910,6 +968,7 @@ begin
     end;
   finally
     FList.Items.EndUpdate;
+    for r := 0 to ROLE_COUNT - 1 do Lists[r].Free;
   end;
   if FSongs.Count = 0 then
     FStatus.Caption := _('Keine Songs gefunden. Ordner und Muster prüfen (Stern * = Songname).')
@@ -926,6 +985,66 @@ begin
   end;
 end;
 
+{ Längenprüfung: ffmpeg liest die Länge jeder Spur. Weicht eine Spur mehr
+  als LENGTH_TOLERANCE vom Master ab (beim Mischen: von der längsten Spur),
+  kommt ein Hinweis zurück, sonst ''. Gepackt wird trotzdem. }
+function TPackerForm.CheckLengths(Song: TPackSong): string;
+var
+  Args: TStringList;
+  Idx: array of Integer;
+  D: TDurations;
+  OutText, RefName, Part: string;
+  r, k, Ref: Integer;
+  RefLen, Diff: Double;
+begin
+  Result := '';
+  Args := TStringList.Create;
+  try
+    Args.AddStrings(['-hide_banner', '-nostdin']);
+    Idx := nil;
+    for r := 0 to ROLE_COUNT - 1 do
+      if Song.Files[r] <> '' then
+      begin
+        Args.AddStrings(['-i', Song.Files[r]]);
+        SetLength(Idx, Length(Idx) + 1);
+        Idx[High(Idx)] := r;
+      end;
+    if Length(Idx) < 2 then Exit;
+    { nichts umwandeln (-t 0), nur die Längen aus der Ausgabe lesen }
+    Args.AddStrings(['-t', '0', '-f', 'null', '-']);
+    RunTool(Args, _('Längen prüfen'), OutText);
+    if FCancel then Exit;
+    D := ParseDurations(OutText, Length(Idx));
+    { Bezug: der Master, sonst die längste Spur }
+    Ref := -1;
+    if Idx[0] = 0 then
+      Ref := 0
+    else
+      for k := 0 to High(D) do
+        if (D[k] >= 0) and ((Ref < 0) or (D[k] > D[Ref])) then Ref := k;
+    if (Ref < 0) or (D[Ref] < 0) then Exit;
+    RefLen := D[Ref];
+    if Idx[0] = 0 then RefName := _('der Master') else RefName := _('die längste Spur');
+    for k := 0 to High(D) do
+    begin
+      if (k = Ref) or (D[k] < 0) then Continue;
+      Diff := D[k] - RefLen;
+      if Abs(Diff) <= LENGTH_TOLERANCE then Continue;
+      if Diff < 0 then
+        Part := Format(_('%s ist %s s kürzer als %s'),
+          [RoleCaption(Idx[k]), FormatFloat('0.0', -Diff), RefName])
+      else
+        Part := Format(_('%s ist %s s länger als %s'),
+          [RoleCaption(Idx[k]), FormatFloat('0.0', Diff), RefName]);
+      if Result <> '' then Result := Result + ', ';
+      Result := Result + Part;
+      Log(Format('Länge: %s %.2f s, Bezug %.2f s', [RoleCaption(Idx[k]), D[k], RefLen]));
+    end;
+  finally
+    Args.Free;
+  end;
+end;
+
 { ============================================================================
   Packen
   ============================================================================ }
@@ -938,6 +1057,7 @@ var
   Meta: TStringList;
   Extra: TMp4TagArray;
   Code: Integer;
+  Warn: string;
 
   procedure AddExtra(const AName, AValue: string; Free: Boolean);
   begin
@@ -986,7 +1106,12 @@ begin
       if Cover <> '' then Log('Cover aus dem Ordner: ' + Cover);
     end;
 
-    { 2. MP4 mit 5 Spuren }
+    { 2. Längen vergleichen (nur Hinweis, gepackt wird trotzdem) }
+    Warn := CheckLengths(Song);
+    if FCancel then Exit;
+    if Warn <> '' then Log('Achtung: ' + Warn);
+
+    { 3. MP4 mit 5 Spuren }
     SetRowStatus(Row, _('wird gepackt ...'));
     BuildPackArgs(Song, GetOptions, Cover, TmpFile, Tags, Args);
     Code := RunTool(Args, Format(_('Packe %s'), [Song.Name]), OutText);
@@ -1003,7 +1128,7 @@ begin
       Exit;
     end;
 
-    { 3. Stem-Block (Namen, Farben) und was ffmpeg nicht schreiben kann }
+    { 4. Stem-Block (Namen, Farben) und was ffmpeg nicht schreiben kann }
     Extra := nil;
     AddExtra('initialkey', Tags.Key, True);
     AddExtra(#$A9'pub', Tags.Publisher, False);
@@ -1028,7 +1153,13 @@ begin
       Exit;
     end;
     Log('Fertig: ' + OutFile);
-    SetRowStatus(Row, _('fertig'));
+    if Warn <> '' then
+    begin
+      SetRowStatus(Row, _('fertig, Achtung: ') + Warn);
+      Inc(FWarned);
+    end
+    else
+      SetRowStatus(Row, _('fertig'));
     Result := True;
   finally
     Args.Free;
@@ -1057,6 +1188,7 @@ begin
   Log(Format('Start: %d Songs, Format %d, Stems: %s', [FSongs.Count, Ord(Opt.Format),
     BuildStemJSON(StemInfos)]));
   Done := 0; Failed := 0; Skipped := 0;
+  FWarned := 0;
   LastOut := '';
   FCancel := False;
   T0 := GetTickCount64;
@@ -1084,8 +1216,8 @@ begin
   finally
     SetBusy(False);
   end;
-  Log(Format('Ende: %d fertig, %d Fehler, %d übersprungen, %.0f s',
-    [Done, Failed, Skipped, (GetTickCount64 - T0) / 1000]));
+  Log(Format('Ende: %d fertig (%d mit Längen-Warnung), %d Fehler, %d übersprungen, %.0f s',
+    [Done, FWarned, Failed, Skipped, (GetTickCount64 - T0) / 1000]));
   FStatus.Caption := Format(_('%d fertig, %d Fehler, %d übersprungen.'), [Done, Failed, Skipped]);
   if FCloseAfter then
   begin
@@ -1093,8 +1225,11 @@ begin
     Exit;
   end;
   if FCancel then Exit;
+  Why := '';
+  if FWarned > 0 then
+    Why := LineEnding + LineEnding + Format(_('Längen-Warnung bei %d Song(s): eine Spur ist kürzer oder länger als der Rest (siehe Liste). Bitte in Traktor anhören, ob alles zusammenpasst.'), [FWarned]);
   if MessageDlg(APP_TITLE, Format(_('%d Stem-Dateien erstellt, %d Fehler, %d übersprungen.'),
-       [Done, Failed, Skipped]) + LineEnding + LineEnding +
+       [Done, Failed, Skipped]) + Why + LineEnding + LineEnding +
        _('Die Dateien lassen sich direkt in Traktor laden. Ordner jetzt öffnen?'),
        mtInformation, [mbYes, mbNo], 0) = mrYes then
     if LastOut <> '' then OpenDocument(ExtractFilePath(LastOut));
@@ -1371,6 +1506,29 @@ procedure TPackerForm.BtnCancelClick(Sender: TObject);
 begin
   FCancel := True;
   FStatus.Caption := _('Breche ab ...');
+end;
+
+procedure TPackerForm.ListSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected and (Item <> nil) and (Item.SubItems.Count >= COL_STATUS) then
+  begin
+    FStatus.Caption := Item.Caption + ':  ' + Item.SubItems[COL_STATUS - 1];
+    FStatus.Hint := FStatus.Caption;
+    FStatus.ShowHint := True;
+  end;
+end;
+
+{ Info mit Version, Projektseite und Dank }
+procedure TPackerForm.BtnInfoClick(Sender: TObject);
+begin
+  MessageDlg(APP_TITLE,
+    APP_TITLE + ' ' + APP_VER + LineEnding + LineEnding +
+    _('Packt fertige Einzelspuren (Master und 4 Stems) ohne KI-Trennung zu Traktor-Stem-Dateien.') +
+    LineEnding + LineEnding + PAGE_URL + LineEnding + LineEnding +
+    _('Danke an Cuiusquemodi für die Idee, den Test mit 178 Songs und die vielen Rückmeldungen.') +
+    LineEnding + LineEnding +
+    _('Frei unter der MIT-Lizenz. Enthält ffmpeg (LGPL).'),
+    mtInformation, [mbOK], 0);
 end;
 
 procedure TPackerForm.BtnLogClick(Sender: TObject);

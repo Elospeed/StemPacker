@@ -1,4 +1,4 @@
-# Elospeed StemPacker 0.1
+# Elospeed StemPacker 0.2
 
 **by Elospeed**
 
@@ -8,7 +8,7 @@ Turns **finished single tracks into Traktor stem files** (`*.stem.mp4`), **witho
 
 StemPacker is part of the [Elospeed StemMaker](https://github.com/Elospeed/StemMaker) family. StemMaker *separates* your music into stems with AI; StemPacker *packs* stems you already have.
 
-> **Status:** first test version (0.1). Please test with copies of your files.
+> **Status:** version 0.2, tested with 178 songs in Traktor Pro 4. Please work with copies of your files.
 
 ## Features
 
@@ -18,6 +18,7 @@ StemPacker is part of the [Elospeed StemMaker](https://github.com/Elospeed/StemM
 - **Tags and cover from the master** (title, artist, album, BPM, key, label, ISRC …). No title? The song name is used. Cover from the folder if the master has none.
 - **Formats:** AAC 320 kbit/s (like Traktor), ALAC lossless 16 bit / 44.1 kHz, ALAC 24 bit at the original sample rate (test).
 - **Mix the master from the stems**, **fill missing stems with silence**, overwrite or skip finished songs.
+- **Helpful checks:** if a stem is missing, the list shows the file name it looked for and a similarly named file, if there is one. A track that is shorter or longer than the master gets a warning.
 - Your source files are only read, never changed. Log file `logs\StemPacker.log`.
 - English, German and Spanish. Works at 100 % to 200 % Windows scaling.
 
@@ -31,6 +32,14 @@ Get `StemPacker-<version>.zip` from the [releases page](https://github.com/Elosp
 - `tools\ffmpeg.exe`: FFmpeg (LGPL), does the actual audio work
 
 Windows SmartScreen may warn because the exe is not signed: "More info" → "Run anyway".
+
+## FAQ
+
+**My stem file does not load into a Traktor track deck.** That is how Traktor works: stem files only load into stem decks, also those made by Native Instruments' own Stem Creator. Switch the deck to a stem deck.
+
+**A song shows "missing".** The list names the file it looked for, e.g. `Stem 2 "Hello (B)"`, and a similarly named file if it finds one. Rename the file or adjust the pattern.
+
+**"Warning: Stem 2 is 1.3 s shorter than the master".** The song was packed anyway. Listen in Traktor whether all stems are in sync.
 
 ## Building
 
@@ -47,6 +56,10 @@ Developer documents (in German): [CHANGELOG](CHANGELOG.md), [ROADMAP](ROADMAP.md
 ## Support
 
 StemPacker is a one-person hobby project. If it saves you some time, you can [buy me a coffee on Ko-fi](https://ko-fi.com/elospeed) ☕. Entirely optional, the tool stays free either way.
+
+## Thanks
+
+To **Cuiusquemodi** for the idea, the test with 178 songs and lots of feedback.
 
 ## License
 

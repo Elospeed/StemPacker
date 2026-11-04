@@ -27,6 +27,8 @@
 
   Versionen:
     0.1  (01.11.2026)  Erste Version
+    0.2  (04.11.2026)  Gesuchten Dateinamen zeigen und ähnliche Dateien finden,
+                       wenn ein Stem fehlt (ExpectedName, FindSimilar)
   ============================================================================ }
 unit packmatch;
 
@@ -76,6 +78,22 @@ function RoleFolder(const Rules: TPackRules; Role: Integer): string;
   sortiert nach Unterordner und Name. }
 procedure FindSongs(const Rules: TPackRules; Songs: TList);
 procedure FreeSongs(Songs: TList);
+
+{ Name, den eine Datei der Rolle für diesen Song haben müsste (ohne Endung):
+  der erste Stern im Muster wird durch den Songnamen ersetzt. }
+function ExpectedName(const Pattern, Song: string): string;
+
+{ Alle Audiodateien eines Ordners: Names = relativer Pfad mit Endung,
+  Paths = voller Pfad (gleiche Reihenfolge) }
+procedure ListAudio(const Folder: string; Sub: Boolean; Names, Paths: TStrings);
+
+{ Fehlt eine Datei, eine ähnlich heissende im selben Unterordner suchen
+  (andere Leerzeichen, Satzzeichen, Apostroph, Gross-/Kleinschreibung, oder
+  ein Name, der den Songnamen enthält). Names = Liste aus ListAudio für den
+  Ordner der Rolle (Folder mit \ am Ende). Dateien, die der Song schon
+  benutzt, zählen nicht. Ergebnis: relativer Name der Datei oder ''. }
+function FindSimilar(Names: TStrings; const Folder, Expected: string;
+  Song: TPackSong): string;
 
 implementation
 
@@ -184,7 +202,7 @@ begin
   Result := Song <> '';
 end;
 
-{ Alle Audiodateien eines Ordners (relativer Pfad ohne Endung -> voller Pfad) }
+{ Alle Audiodateien eines Ordners (relativer Pfad -> voller Pfad) }
 procedure ListAudio(const Folder: string; Sub: Boolean; Names, Paths: TStrings);
 var
   L: TStringList;
@@ -304,6 +322,76 @@ begin
   for i := 0 to Songs.Count - 1 do
     TObject(Songs[i]).Free;
   Songs.Clear;
+end;
+
+function ExpectedName(const Pattern, Song: string): string;
+var p: Integer;
+begin
+  Result := Trim(Pattern);
+  p := Pos('*', Result);
+  if p > 0 then
+    Result := Copy(Result, 1, p - 1) + Song + Copy(Result, p + 1, MaxInt);
+end;
+
+{ Für den Vergleich: klein, ohne Leerzeichen und ASCII-Satzzeichen, typische
+  Sonderformen (’ ‘ ´ ` – —) entfernt. Buchstaben mit Akzent bleiben. }
+function NormName(const S: string): string;
+var
+  T: string;
+  i: Integer;
+begin
+  T := UTF8LowerCase(S);
+  T := StringReplace(T, '’', '', [rfReplaceAll]);
+  T := StringReplace(T, '‘', '', [rfReplaceAll]);
+  T := StringReplace(T, '´', '', [rfReplaceAll]);
+  T := StringReplace(T, '–', '', [rfReplaceAll]);
+  T := StringReplace(T, '—', '', [rfReplaceAll]);
+  Result := '';
+  for i := 1 to Length(T) do
+    if (T[i] in ['a'..'z', '0'..'9']) or (Ord(T[i]) >= 128) then
+      Result := Result + T[i];
+end;
+
+function FindSimilar(Names: TStrings; const Folder, Expected: string;
+  Song: TPackSong): string;
+var
+  i: Integer;
+  NExp, NSong, NFix, NBase, SubDir: string;
+
+  { Datei gehört schon zu diesem Song (z. B. der Master im selben Ordner) }
+  function Taken(const Rel: string): Boolean;
+  var r: Integer;
+  begin
+    for r := 0 to ROLE_COUNT - 1 do
+      if (Song.Files[r] <> '') and (CompareFilenames(Song.Files[r], Folder + Rel) = 0) then
+        Exit(True);
+    Result := False;
+  end;
+
+begin
+  Result := '';
+  if (Names = nil) or (Song = nil) then Exit;
+  SubDir := Song.SubDir;
+  NExp := NormName(Expected);
+  NSong := NormName(Song.Name);
+  { 1. gleicher Name bis auf Schreibweise (Leerzeichen, Satzzeichen) }
+  for i := 0 to Names.Count - 1 do
+    if CompareFilenames(ExtractFilePath(Names[i]), SubDir) = 0 then
+      if (NormName(ExtractFileNameOnly(Names[i])) = NExp) and not Taken(Names[i]) then
+        Exit(Names[i]);
+  { 2. Name enthält den Songnamen und den Rest des Musters (z. B. eine
+       Nummer davor oder ein Bindestrich mehr): aus "* (D)" wird "d" }
+  if Length(NSong) < 4 then Exit;
+  NFix := StringReplace(NExp, NSong, '', []);
+  for i := 0 to Names.Count - 1 do
+    if CompareFilenames(ExtractFilePath(Names[i]), SubDir) = 0 then
+    begin
+      NBase := NormName(ExtractFileNameOnly(Names[i]));
+      if (Pos(NSong, NBase) > 0) and
+         ((NFix = '') or (Pos(NFix, StringReplace(NBase, NSong, '', [])) > 0))
+         and not Taken(Names[i]) then
+        Exit(Names[i]);
+    end;
 end;
 
 end.

@@ -54,7 +54,7 @@
   "description": "Batch tool that packs finished tracks (master plus up to four stems) into Traktor stem files (.stem.mp4) without AI separation, with custom stem names and colours, tags and cover from the master.",
   "url": "https://elospeed.github.io/StemPacker/",
   "downloadUrl": "https://github.com/Elospeed/StemPacker/releases/latest",
-  "softwareVersion": "0.1",
+  "softwareVersion": "0.2",
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -98,7 +98,7 @@
       <li>English, German, Spanish</li>
     </ul>
     <figure class="shot hero-shot">
-      <div class="bar"><img src="img/icon-32.png" alt=""><span>Elospeed StemPacker 0.1</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
+      <div class="bar"><img src="img/icon-32.png" alt=""><span>Elospeed StemPacker 0.2</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
       <img src="img/stempacker-en.png" width="900" height="640" alt="StemPacker window: preset 5.1 DVD, folders and name patterns for master and stems 1 to 4 with stem names Front, LFE, Center, Rear and their colours, below a list of three packed songs">
     </figure>
   </div>
@@ -113,7 +113,7 @@
       <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Your names and colours</h3><p>Each stem gets the name and colour you set, for example Front, LFE, Center and Rear for 5.1 channels. Traktor shows them directly on the deck.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags and cover from the master</h3><p>Title, artist, album, BPM, key, label and cover are copied from the master file. No title? The song name is used. No cover? <code>cover.jpg</code> or <code>&lt;song&gt;.jpg</code> from the folder.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC or lossless ALAC</h3><p>AAC 320 kbit/s like Traktor's own stems, ALAC lossless 16 bit, or ALAC 24 bit at the original sample rate (still in testing).</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Gaps handled</h3><p>Songs without a finished master: mix it from the stems, without changing the level. A stem missing? Fill it with silence, or skip the song.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Gaps handled</h3><p>Songs without a finished master: mix it from the stems, without changing the level. A stem missing? The list shows the file name it looked for and a similarly named file, if there is one. Fill it with silence, or skip the song. A track shorter or longer than the master gets a warning.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Listen before Traktor</h3><p>The download includes StemPlayer: open a finished file and mute or solo each stem, to check the result before it goes into your Traktor collection.</p></div>
     </div>
   </div>
@@ -173,6 +173,14 @@
     <details>
       <summary>Which files can it read?</summary>
       <p>WAV, FLAC, AIFF, MP3, M4A, OGG, Opus, W64 and WavPack. Mono files (for example LFE or a center channel) are played on both sides.</p>
+    </details>
+    <details>
+      <summary>My stem file does not load into a Traktor track deck. Why?</summary>
+      <p>That is how Traktor works: stem files only load into stem decks, also the ones made with Native Instruments' own Stem Creator. Switch the deck to a stem deck and load the file again.</p>
+    </details>
+    <details>
+      <summary>A song shows “missing”. What now?</summary>
+      <p>The list names the file it looked for, for example <code>Stem 2 “Hello (B)”</code>, and a similarly named file if it finds one (other spaces, punctuation or upper and lower case). Rename the file or adjust the pattern, then click “Find songs” again.</p>
     </details>
     <details>
       <summary>Can it read DVDs or cut .cue files?</summary>
