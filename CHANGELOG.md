@@ -14,6 +14,7 @@ Version 0.1 entstand als AddOn im Repository [Elospeed/StemMaker](https://github
 - **Fehlt ein Stem, steht der gesuchte Dateiname in der Liste**, z. B. `fehlt: Stem 2 „Hallo (B)“`. Gibt es im selben Ordner eine ähnlich heissende Datei (andere Leerzeichen, Satzzeichen, Apostroph, Gross-/Kleinschreibung oder ein Name, der den Songnamen enthält), zeigt die Liste sie als `ähnlich: „…“`. Die Einzelheiten mit vollem Pfad stehen im Log.
 - **Längenprüfung:** vor dem Packen vergleicht der StemPacker die Länge jeder Spur mit dem Master (beim Mischen mit der längsten Spur). Weicht eine um mehr als 0,5 s ab, wird trotzdem gepackt, aber die Liste zeigt z. B. `fertig, Achtung: Stem 2 ist 1,3 s kürzer als der Master`, und die Zusammenfassung am Ende nennt die Anzahl.
 - **Info-Knopf** mit Version, Projektseite und Dank an Cuiusquemodi.
+- **Ganzer Status in der Fusszeile:** ein Klick auf einen Song zeigt seine ganze Meldung unten im Fenster (die Spalte Status ist dafür breiter, aber lange Meldungen passen nicht immer hinein).
 
 ### Doku
 - Häufige Fragen in README, LIESMICH und auf der Projektseite: Stem-Dateien laden in Traktor nur in Stem-Decks, nicht in Track-Decks (auch die von Native Instruments).

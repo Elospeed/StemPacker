@@ -28,7 +28,8 @@
     0.1  (01.11.2026)  Erste Testversion
     0.2  (04.11.2026)  Fehlt ein Stem: gesuchter Dateiname und ähnliche Datei
                        in der Liste; Längenprüfung (Spur kürzer/länger als
-                       der Master); Info-Knopf mit Dank an Cuiusquemodi
+                       der Master); Info-Knopf mit Dank an Cuiusquemodi;
+                       gewählte Zeile zeigt den ganzen Status unten
   ============================================================================ }
 unit packerform;
 
@@ -134,6 +135,7 @@ type
     procedure BtnCancelClick(Sender: TObject);
     procedure BtnLogClick(Sender: TObject);
     procedure BtnInfoClick(Sender: TObject);
+    procedure ListSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure KofiPaint(Sender: TObject);
     procedure KofiClick(Sender: TObject);
     procedure KofiEnter(Sender: TObject);
@@ -615,10 +617,13 @@ begin
   FList.ReadOnly := True;
   FList.RowSelect := True;
   FList.HideSelection := False;
-  with FList.Columns.Add do begin Caption := _('Song');    Width := Scale96ToForm(260); end;
-  with FList.Columns.Add do begin Caption := _('Dateien'); Width := Scale96ToForm(80);  end;
-  with FList.Columns.Add do begin Caption := _('Status');  Width := Scale96ToForm(230); end;
+  with FList.Columns.Add do begin Caption := _('Song');    Width := Scale96ToForm(220); end;
+  with FList.Columns.Add do begin Caption := _('Dateien'); Width := Scale96ToForm(60);  end;
+  with FList.Columns.Add do begin Caption := _('Status');  Width := Scale96ToForm(360); end;
   with FList.Columns.Add do begin Caption := _('Ziel');    Width := Scale96ToForm(300); end;
+  { gewählte Zeile: ganzer Status unten in der Fusszeile (die Spalte ist
+    für lange Meldungen zu schmal) }
+  FList.OnSelectItem := @ListSelectItem;
 end;
 
 { ============================================================================
@@ -1222,7 +1227,7 @@ begin
   if FCancel then Exit;
   Why := '';
   if FWarned > 0 then
-    Why := LineEnding + LineEnding + Format(_('Bei %d Songs ist eine Spur kürzer oder länger als der Rest (siehe Liste). Bitte in Traktor anhören, ob alles zusammenpasst.'), [FWarned]);
+    Why := LineEnding + LineEnding + Format(_('Längen-Warnung bei %d Song(s): eine Spur ist kürzer oder länger als der Rest (siehe Liste). Bitte in Traktor anhören, ob alles zusammenpasst.'), [FWarned]);
   if MessageDlg(APP_TITLE, Format(_('%d Stem-Dateien erstellt, %d Fehler, %d übersprungen.'),
        [Done, Failed, Skipped]) + Why + LineEnding + LineEnding +
        _('Die Dateien lassen sich direkt in Traktor laden. Ordner jetzt öffnen?'),
@@ -1501,6 +1506,16 @@ procedure TPackerForm.BtnCancelClick(Sender: TObject);
 begin
   FCancel := True;
   FStatus.Caption := _('Breche ab ...');
+end;
+
+procedure TPackerForm.ListSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected and (Item <> nil) and (Item.SubItems.Count >= COL_STATUS) then
+  begin
+    FStatus.Caption := Item.Caption + ':  ' + Item.SubItems[COL_STATUS - 1];
+    FStatus.Hint := FStatus.Caption;
+    FStatus.ShowHint := True;
+  end;
 end;
 
 { Info mit Version, Projektseite und Dank }
