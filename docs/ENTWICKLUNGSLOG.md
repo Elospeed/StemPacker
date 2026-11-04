@@ -22,3 +22,9 @@ Technische Hintergründe, Fehler und Lehren. Was für Benutzer neu ist, steht im
 - Unter Wine Pfade mit Umlauten nur mit `LANG=C.UTF-8` testen, sonst verstümmelt Wine sie (kein Programmfehler).
 - ICO-Dateien mit PNG-Einträgen (z. B. von Pillow) bringen die LCL zum Absturz („Bitmap with unknown compression“); das Symbol ist mit ImageMagick als BMP-Einträge plus PNG nur bei 256 px gebaut.
 - Unit-Name und globale Formularvariable dürfen nicht gleich heissen (`packerform` / `MainPacker`).
+
+## 0.2 – Prüfungen vor dem Veröffentlichen (4. November 2026)
+
+- Anlass: beim Test mit 178 Songs fehlten bei 2 Songs Stems. Ursache waren abweichende Dateinamen beim Tester, nicht der StemPacker; die Liste sagte aber nur „fehlt: Stem 2“. Jetzt zeigt sie den gesuchten Namen (`ExpectedName`, erster Stern = Songname) und sucht im selben Unterordner eine ähnliche Datei (`FindSimilar`): 1. Name gleich bis auf Leerzeichen, Satzzeichen, Apostroph, Gross-/Kleinschreibung (`NormName`), 2. Name enthält den Songnamen und den Rest des Musters (aus `* (D)` wird `d`), damit nicht die Datei eines anderen Stems vorgeschlagen wird. Dateien, die der Song schon benutzt, zählen nicht. Achtung: `Pos('', s)` ist in FPC 0, darum leerer Rest extra geprüft.
+- Längenprüfung: `ffmpeg -i a -i b ... -t 0 -f null -` wandelt nichts um, endet mit Code 0 (ohne Ausgabe wäre es Code 1 und RunTool würde die ganze Ausgabe ins Log schreiben) und nennt pro Eingang `Duration:`. `ParseDurations` liest sie. Bezug ist der Master, beim Mischen die längste Spur; Warnung ab 0,5 s (MP3 ohne Xing-Kopf hat geschätzte Längen, darum nicht kleiner). Gepackt wird trotzdem.
+- Track-Deck: Traktor lädt Stem-Dateien nicht in Track-Decks, auch nicht die aus dem NI Stem Creator. Kein Fehler des StemPackers; steht in den FAQ.

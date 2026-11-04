@@ -22,6 +22,8 @@
 
   Versionen:
     0.1  (01.11.2026)  Erste Version
+    0.2  (04.11.2026)  Längen der Spuren aus der ffmpeg-Ausgabe lesen
+                       (ParseDurations) für die Längenprüfung
   ============================================================================ }
 unit packjob;
 
@@ -66,6 +68,17 @@ function BpmToInt(const S: string): Integer;
 
 { cover.jpg, folder.jpg, front.jpg ... oder <Song>.jpg im Ordner ('' = keins) }
 function FindFolderCover(const Folder, SongName: string): string;
+
+type
+  TDurations = array of Double;   // Sekunden je Eingang, -1 = unbekannt
+
+{ Liest aus der Ausgabe von "ffmpeg -i a -i b ..." die Länge jedes Eingangs
+  ("Input #n" ... "Duration: 00:03:12.34"). Count = Anzahl Eingänge. }
+function ParseDurations(const FFText: string; Count: Integer): TDurations;
+
+const
+  { ab dieser Abweichung (Sekunden) warnt die Längenprüfung }
+  LENGTH_TOLERANCE = 0.5;
 
 implementation
 
@@ -272,6 +285,57 @@ begin
   if not TryStrToFloat(T, D, FS) then Exit;
   if (D < 20) or (D > 400) then Exit;
   Result := Round(D);
+end;
+
+function ParseDurations(const FFText: string; Count: Integer): TDurations;
+var
+  L: TStringList;
+  i, Cur, p, h, m: Integer;
+  T, Num: string;
+  sec: Double;
+  FS: TFormatSettings;
+begin
+  Result := nil;
+  SetLength(Result, Count);
+  for i := 0 to Count - 1 do Result[i] := -1;
+  FS := DefaultFormatSettings;
+  FS.DecimalSeparator := '.';
+  L := TStringList.Create;
+  try
+    L.Text := FFText;
+    Cur := -1;
+    for i := 0 to L.Count - 1 do
+    begin
+      T := Trim(L[i]);
+      if Copy(T, 1, 7) = 'Input #' then
+      begin
+        Num := '';
+        p := 8;
+        while (p <= Length(T)) and (T[p] in ['0'..'9']) do
+        begin
+          Num := Num + T[p];
+          Inc(p);
+        end;
+        Cur := StrToIntDef(Num, -1);
+      end
+      else if (Copy(T, 1, 9) = 'Duration:') and (Cur >= 0) and (Cur < Count) then
+      begin
+        { "Duration: 00:03:12.34, start: ..." }
+        Num := Trim(Copy(T, 10, MaxInt));
+        p := Pos(',', Num);
+        if p > 0 then Num := Copy(Num, 1, p - 1);
+        if (Length(Num) >= 8) and (Num[3] = ':') and (Num[6] = ':') then
+        begin
+          h := StrToIntDef(Copy(Num, 1, 2), -1);
+          m := StrToIntDef(Copy(Num, 4, 2), -1);
+          if (h >= 0) and (m >= 0) and TryStrToFloat(Copy(Num, 7, MaxInt), sec, FS) then
+            Result[Cur] := h * 3600 + m * 60 + sec;
+        end;
+      end;
+    end;
+  finally
+    L.Free;
+  end;
 end;
 
 function FindFolderCover(const Folder, SongName: string): string;

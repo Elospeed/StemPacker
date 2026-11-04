@@ -1,4 +1,4 @@
-Elospeed StemPacker 0.1 (test)  -  by Elospeed  (ko-fi.com/elospeed)
+Elospeed StemPacker 0.2  -  by Elospeed  (ko-fi.com/elospeed)
 ====================================================================
 
 Turns finished single tracks into Traktor stem files (.stem.mp4), WITHOUT
@@ -70,6 +70,16 @@ Saved in StemPacker.ini next to the program.
 
 IF SOMETHING GOES WRONG
 -----------------------
+- "missing: Stem 2 "Hello (B)"": no file with that name (any audio
+  extension) was found. If a file with a similar name exists (other
+  spaces, punctuation or upper/lower case), the list shows it as
+  "similar: ...". Rename the file or adjust the pattern.
+- "done, warning: Stem 2 is 1.3 s shorter than the master": the file was
+  packed, but one track has a different length. Listen in Traktor whether
+  everything is in sync.
+- A stem file does not load into a Traktor TRACK deck: that is how Traktor
+  works, also with stem files from Native Instruments. Load stem files
+  into a STEM deck.
 Everything the program does is written to logs\StemPacker.log. "Show log"
 opens it; please send us that file.
 
@@ -86,6 +96,11 @@ FOLDER CONTENTS
   tools\ffmpeg.exe            FFmpeg (LGPL), does the actual audio work
   tools\FFMPEG-LICENSE.txt    FFmpeg licence
   tools\FFMPEG-SOURCE.txt     FFmpeg source code
+
+THANKS
+------
+To Cuiusquemodi for the idea, the test with 178 songs and lots of
+feedback.
 
 Free software by Elospeed. FFmpeg is a trademark of Fabrice Bellard,
 https://ffmpeg.org - the program runs ffmpeg.exe as a separate program.
