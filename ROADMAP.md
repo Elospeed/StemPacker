@@ -15,3 +15,4 @@ Was als Nächstes kommt. Erledigtes steht im [CHANGELOG](CHANGELOG.md), lose Ide
 
 ## Später
 
+- 4-Deck-Vorhörer, Vorhören vor dem Packen, eigene Vorlagen: nur wenn jemand danach fragt (siehe [IDEEN](docs/IDEEN.md)).
