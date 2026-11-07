@@ -80,6 +80,7 @@ type
     FChkExpert : TCheckBox;  // Ordner und Muster selbst einstellen
     FPTop      : TPanel;     // Vorlage + Schalter (nur im erweiterten Modus)
     FHead      : TPanel;     // Spaltenüberschriften der fünf Zeilen
+    FOptPanels : array[0..2] of TPanel;  // Ziel, Format, Extras (für die Reihenfolge)
     FCbPreset  : TComboBox;
     FChkMix    : TCheckBox;
     FChkSub    : TCheckBox;
@@ -527,6 +528,7 @@ begin
 
   { --- Ziel ----------------------------------------------------------- }
   Opt := NewPanel(Self, alTop, 32, 300);
+  FOptPanels[0] := Opt;
   Opt.BorderSpacing.Left := Scale96ToForm(10);
   Opt.BorderSpacing.Right := Scale96ToForm(10);
   Opt.BorderSpacing.Top := Scale96ToForm(10);
@@ -564,6 +566,7 @@ begin
 
   { --- Format und Schalter -------------------------------------------- }
   Opt2 := NewPanel(Self, alTop, 32, 400);
+  FOptPanels[1] := Opt2;
   Opt2.BorderSpacing.Left := Scale96ToForm(10);
   Opt2.BorderSpacing.Right := Scale96ToForm(10);
   NewLabel(Opt2, _('Format:'), alLeft, 64).Font.Style := [fsBold];
@@ -585,6 +588,7 @@ begin
 
   { --- Extras --------------------------------------------------------- }
   Opt3 := NewPanel(Self, alTop, 30, 500);
+  FOptPanels[2] := Opt3;
   Opt3.BorderSpacing.Left := Scale96ToForm(10);
   Opt3.BorderSpacing.Right := Scale96ToForm(10);
   NewLabel(Opt3, _('Extras:'), alLeft, 64).Font.Style := [fsBold];
@@ -744,8 +748,8 @@ begin
 end;
 
 { Erweiterte Einstellungen (Vorlage, fünf Zeilen) zeigen oder verstecken.
-  Die Top-Werte halten die Reihenfolge der alTop-Panels fest, auch wenn
-  sie wieder sichtbar werden. }
+  Danach bekommen alle alTop-Panels der Reihe nach aufsteigende Top-Werte,
+  sonst landen die wieder sichtbaren Zeilen unter „Ziel“ und „Format“. }
 procedure TPackerForm.ShowExpert;
 var
   r: Integer;
@@ -754,16 +758,19 @@ begin
   B := FChkExpert.Checked;
   DisableAlign;
   try
-    FSimple.Top := 0;
     FPTop.Visible := B;
-    FPTop.Top := 50;
     FHead.Visible := B;
-    FHead.Top := 100;
     for r := 0 to ROLE_COUNT - 1 do
-    begin
       FRows[r].Panel.Visible := B;
-      FRows[r].Panel.Top := 200 + r;
-    end;
+    { Reihenfolge von oben: Einfach, Vorlage, Überschriften, fünf Zeilen,
+      Ziel, Format, Extras }
+    FSimple.Top := 0;
+    FPTop.Top := 1;
+    FHead.Top := 2;
+    for r := 0 to ROLE_COUNT - 1 do
+      FRows[r].Panel.Top := 3 + r;
+    for r := 0 to High(FOptPanels) do
+      FOptPanels[r].Top := 3 + ROLE_COUNT + r;
   finally
     EnableAlign;
   end;
