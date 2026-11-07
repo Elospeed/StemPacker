@@ -1,0 +1,423 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja\n"
+"X-Source-Language: de\n"
+"Project-Id-Version: Elospeed StemPacker\n"
+
+#: packerform.pas:1152
+msgid "%d Songs gefunden, %d bereit zum Packen."
+msgstr "%d 曲見つかりました。%d 曲をパックできます。"
+
+#: packerform.pas:1407
+msgid "%d Stem-Dateien erstellt, %d Fehler, %d übersprungen."
+msgstr "ステムファイル %d 個作成、エラー %d、スキップ %d。"
+
+#: packerform.pas:1397
+msgid "%d fertig, %d Fehler, %d übersprungen."
+msgstr "完了 %d、エラー %d、スキップ %d。"
+
+#: packerform.pas:1210
+msgid "%s ist %s s kürzer als %s"
+msgstr "%0:s は %2:s より %1:s 秒短い"
+
+#: packerform.pas:1213
+msgid "%s ist %s s länger als %s"
+msgstr "%0:s は %2:s より %1:s 秒長い"
+
+#: packerform.pas:1097
+msgid "%s „%s“"
+msgstr "%s「%s」"
+
+#: packerform.pas:367
+msgid "(Tags und Cover)"
+msgstr "（タグとカバー）"
+
+#: packerform.pas:580
+msgid "24 Bit / 96 kHz ist noch nicht in Traktor geprüft. Bitte zuerst mit einem Song testen."
+msgstr "24 ビット / 96 kHz は Traktor でまだ確認されていません。まず 1 曲で試してください。"
+
+#: packerform.pas:490
+msgid "5.1-DVD: „Song (DOWNMIX #1)“ + „Song (A)“ … „(D)“"
+msgstr "5.1 DVD:「Song (DOWNMIX #1)」+「Song (A)」…「(D)」"
+
+#: packerform.pas:577
+msgid "AAC 320 kbit/s (wie Traktor-Stems)"
+msgstr "AAC 320 kbit/s（Traktor のステムと同じ）"
+
+#: packerform.pas:579
+msgid "ALAC 24 Bit, Original-Abtastrate (Test)"
+msgstr "ALAC 24 ビット、元のサンプルレート（テスト）"
+
+#: packerform.pas:578
+msgid "ALAC verlustfrei, 16 Bit / 44,1 kHz"
+msgstr "ALAC ロスレス、16 ビット / 44.1 kHz"
+
+#: packerform.pas:648
+msgid "Abbrechen"
+msgstr "キャンセル"
+
+#: packerform.pas:639
+msgid "Alle packen"
+msgstr "すべてパック"
+
+#: packerform.pas:500
+msgid "Auch in Unterordnern suchen. Die Unterordner müssen in allen Ordnern gleich heissen."
+msgstr "サブフォルダーも検索します。サブフォルダー名はすべてのフォルダーで同じにしてください。"
+
+#: packerform.pas:563
+msgid "Ausgabeordner (Unterordner werden übernommen)"
+msgstr "出力フォルダー（サブフォルダーは維持されます）"
+
+#: packerform.pas:1659
+msgid "Ausgabeordner wählen"
+msgstr "出力フォルダーを選択"
+
+#: packerform.pas:379
+msgid "Beispiel: „* (A)“ findet „Hello (A).wav“, der Song heisst dann „Hello“."
+msgstr "例:「* (A)」は「Hello (A).wav」を見つけ、曲名は「Hello」になります。"
+
+#: packerform.pas:1039
+msgid "Bitte einen Ausgabeordner angeben (oder „neben die Master-Datei“ wählen)."
+msgstr "出力フォルダーを指定してください（または「マスターファイルの隣」を選択）。"
+
+#: packerform.pas:1488
+msgid "Bitte im nächsten Fenster die ffmpeg.exe auswählen (z. B. aus StemMaker\\tools\\)."
+msgstr "次のウィンドウで ffmpeg.exe を選択してください（例: StemMaker\\tools\\ の中）。"
+
+#: packerform.pas:1709 packerform.pas:1795
+msgid "Breche ab ..."
+msgstr "キャンセル中 ..."
+
+#: packerform.pas:594
+msgid "Cover aus dem Ordner, wenn die Datei keins hat"
+msgstr "ファイルにカバーがなければフォルダーから取得"
+
+#: packerform.pas:491
+msgid "DAW-Export: „Song“ + „Song_drums“ … „_vocals“"
+msgstr "DAW 書き出し:「Song」+「Song_drums」…「_vocals」"
+
+#: packerform.pas:1729
+msgid "Danke an Cuiusquemodi für die Idee, den Test mit 178 Songs und die vielen Rückmeldungen."
+msgstr "アイデア、178 曲でのテスト、たくさんのフィードバックをくれた Cuiusquemodi に感謝します。"
+
+#: packerform.pas:678
+msgid "Dateien"
+msgstr "ファイル"
+
+#: packerform.pas:378
+msgid "Dateiname ohne Endung, * steht für den Songnamen."
+msgstr "拡張子なしのファイル名。* は曲名を表します。"
+
+#: packerform.pas:1034
+msgid "Der Ordner von „%s“ fehlt oder existiert nicht."
+msgstr "「%s」のフォルダーが未指定か、存在しません。"
+
+#: packerform.pas:473
+msgid "Die Benennung wird erkannt, z. B. „Song_drums“, „Song (Vocals)“, „Song (A)“ oder „Song_1“."
+msgstr "名前の付け方は自動で認識されます（例:「Song_drums」「Song (Vocals)」「Song (A)」「Song_1」）。"
+
+#: packerform.pas:1409
+msgid "Die Dateien lassen sich direkt in Traktor laden. Ordner jetzt öffnen?"
+msgstr "ファイルはそのまま Traktor に読み込めます。今フォルダーを開きますか?"
+
+#: packerform.pas:493
+msgid "Eigene Muster"
+msgstr "カスタムパターン"
+
+#: packerform.pas:850
+msgid "Erkannt: „%s“ … „%s“, %s."
+msgstr "認識:「%s」…「%s」、%s。"
+
+#: packerform.pas:590
+msgid "Extras:"
+msgstr "その他:"
+
+#: packerform.pas:510
+msgid "Farbe"
+msgstr "色"
+
+#: packerform.pas:347
+msgid "Farbe des Stems in Traktor (klicken zum Ändern)"
+msgstr "Traktor でのステムの色（クリックで変更）"
+
+#: packerform.pas:591
+msgid "Fehlende Stems still füllen"
+msgstr "足りないステムを無音で埋める"
+
+#: packerform.pas:1328
+msgid "Fehler: Datei konnte nicht gespeichert werden"
+msgstr "エラー: ファイルを保存できませんでした"
+
+#: packerform.pas:1322
+msgid "Fehler: Ergebnis hat nicht 5 Spuren"
+msgstr "エラー: 結果が 5 トラックになっていません"
+
+#: packerform.pas:1316
+msgid "Fehler: Stem-Block"
+msgstr "エラー: ステムブロック"
+
+#: packerform.pas:1303
+msgid "Fehler: ffmpeg Code %d (siehe Log)"
+msgstr "エラー: ffmpeg コード %d（ログを参照）"
+
+#: packerform.pas:592
+msgid "Fehlt ein Stem, wird eine stille Spur eingesetzt, statt den Song zu überspringen."
+msgstr "ステムが足りないときは、曲をスキップせずに無音トラックを入れます。"
+
+#: packerform.pas:569
+msgid "Format:"
+msgstr "形式:"
+
+#: packerform.pas:1731
+msgid "Frei unter der MIT-Lizenz. Enthält ffmpeg (LGPL)."
+msgstr "MIT ライセンスで無料。ffmpeg（LGPL）を含みます。"
+
+#: packerform.pas:470
+msgid "Für Benennungen, die nicht erkannt werden: Ordner, Namensmuster, Stem-Namen und Farben je Spur selbst eintragen."
+msgstr "認識されない名前の場合: トラックごとにフォルダー、名前のパターン、ステム名、色を自分で入力します。"
+
+#: packerform.pas:496
+msgid "Für Spuren ohne fertigen Master: die vier Stems werden ohne Pegeländerung zusammengemischt."
+msgstr "マスターがない場合: 4 つのステムを音量を変えずにミックスします。"
+
+#: packerform.pas:595
+msgid "Hat die Master-Datei kein Cover, wird cover.jpg, folder.jpg, front.jpg oder <Song>.jpg aus ihrem Ordner genommen."
+msgstr "マスターファイルにカバーがない場合、同じフォルダーの cover.jpg、folder.jpg、front.jpg または <曲名>.jpg を使います。"
+
+#: packerform.pas:1028
+msgid "Im Muster von „%s“ fehlt der Stern * für den Songnamen."
+msgstr "「%s」のパターンに曲名を表す * がありません。"
+
+#: packerform.pas:663
+msgid "Info"
+msgstr "情報"
+
+#: packerform.pas:606 packerform.pas:1746
+msgid "Kaffee spendieren"
+msgstr "コーヒーをおごる"
+
+#: packerform.pas:1150
+msgid "Keine Songs gefunden. Ordner und Muster prüfen (Stern * = Songname)."
+msgstr "曲が見つかりません。フォルダーとパターンを確認してください（* = 曲名）。"
+
+#: packerform.pas:792
+msgid "Keine bekannte Benennung gefunden. Bitte Ordner und Muster selbst einstellen."
+msgstr "既知の名前の付け方が見つかりません。フォルダーとパターンを自分で設定してください。"
+
+#: packerform.pas:656
+msgid "Log anzeigen"
+msgstr "ログを表示"
+
+#: packerform.pas:1191
+msgid "Längen prüfen"
+msgstr "長さを確認中"
+
+#: packerform.pas:1406
+msgid "Längen-Warnung bei %d Song(s): eine Spur ist kürzer oder länger als der Rest (siehe Liste). Bitte in Traktor anhören, ob alles zusammenpasst."
+msgstr "%d 曲で長さの警告: 他より短い、または長いトラックがあります（一覧を参照）。Traktor で合っているか聴いて確認してください。"
+
+#: packerform.pas:311
+msgid "Master"
+msgstr "マスター"
+
+#: packerform.pas:846
+msgid "Master aus den Stems gemischt"
+msgstr "マスターはステムからミックス"
+
+#: packerform.pas:495
+msgid "Master aus den Stems mischen"
+msgstr "ステムからマスターをミックス"
+
+#: packerform.pas:848
+msgid "Master „%s“"
+msgstr "マスター「%s」"
+
+#: packerform.pas:358
+msgid "Name des Stems, so zeigt ihn Traktor an"
+msgstr "ステム名（Traktor での表示名）"
+
+#: packerform.pas:514
+msgid "Namensmuster (* = Songname)"
+msgstr "名前のパターン（* = 曲名）"
+
+#: packerform.pas:492
+msgid "Nummern: „Song_0“ (Master) bis „Song_4“"
+msgstr "番号:「Song_0」（マスター）～「Song_4」"
+
+#: packerform.pas:516
+msgid "Ordner"
+msgstr "フォルダー"
+
+#: packerform.pas:399
+msgid "Ordner mit den Master-Dateien"
+msgstr "マスターファイルのフォルダー"
+
+#: packerform.pas:463
+msgid "Ordner mit den Spuren hier hineinziehen"
+msgstr "トラックのフォルダーをここにドラッグ"
+
+#: packerform.pas:251
+msgid "Ordner mit den Spuren hineinziehen oder „Ordner wählen …“ klicken."
+msgstr "トラックのフォルダーをドラッグするか「フォルダーを選択 …」をクリックしてください。"
+
+#: packerform.pas:1617
+msgid "Ordner mit den Spuren wählen"
+msgstr "トラックのフォルダーを選択"
+
+#: packerform.pas:717
+msgid "Ordner mit den Stems"
+msgstr "ステムのフォルダー"
+
+#: packerform.pas:249
+msgid "Ordner und Muster einstellen, dann „Songs suchen“."
+msgstr "フォルダーとパターンを設定して「曲を探す」を押してください。"
+
+#: packerform.pas:467
+msgid "Ordner und Muster selbst einstellen"
+msgstr "フォルダーとパターンを自分で設定"
+
+#: packerform.pas:391 packerform.pas:1642
+msgid "Ordner wählen"
+msgstr "フォルダーを選択"
+
+#: packerform.pas:460
+msgid "Ordner wählen …"
+msgstr "フォルダーを選択 …"
+
+#: packerform.pas:1293
+msgid "Packe %s"
+msgstr "%s をパック中"
+
+#: packerform.pas:1727
+msgid "Packt fertige Einzelspuren (Master und 4 Stems) ohne KI-Trennung zu Traktor-Stem-Dateien."
+msgstr "完成した個別トラック（マスターと 4 ステム）を AI 分離なしで Traktor ステムファイルにまとめます。"
+
+#: packerform.pas:677
+msgid "Song"
+msgstr "曲"
+
+#: packerform.pas:1383
+msgid "Song %d von %d: %s"
+msgstr "曲 %d / %d: %s"
+
+#: packerform.pas:631
+msgid "Songs suchen"
+msgstr "曲を探す"
+
+#: packerform.pas:583
+msgid "Sonst werden Songs übersprungen, deren Stem-Datei es schon gibt."
+msgstr "オフの場合、ステムファイルがすでにある曲はスキップします。"
+
+#: packerform.pas:509
+msgid "Spur"
+msgstr "トラック"
+
+#: packerform.pas:679
+msgid "Status"
+msgstr "状態"
+
+#: packerform.pas:312
+msgid "Stem %d"
+msgstr "ステム %d"
+
+#: packerform.pas:512
+msgid "Stem-Name"
+msgstr "ステム名"
+
+#: packerform.pas:1261
+msgid "Tags lesen"
+msgstr "タグを読み込み中"
+
+#: packerform.pas:499
+msgid "Unterordner durchsuchen"
+msgstr "サブフォルダーも検索"
+
+#: packerform.pas:582
+msgid "Vorhandene überschreiben"
+msgstr "既存のファイルを上書き"
+
+#: packerform.pas:484
+msgid "Vorlage:"
+msgstr "テンプレート:"
+
+#: packerform.pas:680
+msgid "Ziel"
+msgstr "保存先"
+
+#: packerform.pas:533
+msgid "Ziel:"
+msgstr "保存先:"
+
+#: packerform.pas:1297
+msgid "abgebrochen"
+msgstr "キャンセルしました"
+
+#: packerform.pas:1140
+msgid "bereit"
+msgstr "準備完了"
+
+#: packerform.pas:1138
+msgid "bereit, still gefüllt: "
+msgstr "準備完了、無音で補完: "
+
+#: packerform.pas:1203
+msgid "der Master"
+msgstr "マスター"
+
+#: packerform.pas:1203
+msgid "die längste Spur"
+msgstr "最も長いトラック"
+
+#: packerform.pas:1132
+msgid "fehlt: "
+msgstr "不足: "
+
+#: packerform.pas:1338
+msgid "fertig"
+msgstr "完了"
+
+#: packerform.pas:1334
+msgid "fertig, Achtung: "
+msgstr "完了、注意: "
+
+#: packerform.pas:229
+msgid "fertige Spuren zu Stem-Dateien packen"
+msgstr "完成したトラックをステムファイルにまとめる"
+
+#: packerform.pas:247
+msgid "ffmpeg.exe nicht gefunden - wird beim ersten Gebrauch abgefragt."
+msgstr "ffmpeg.exe が見つかりません - 初回使用時に指定を求めます。"
+
+#: packerform.pas:1487
+msgid "ffmpeg.exe wurde nicht gefunden."
+msgstr "ffmpeg.exe が見つかりませんでした。"
+
+#: packerform.pas:1134
+msgid "gibt es schon, wird übersprungen"
+msgstr "すでにあるのでスキップ"
+
+#: packerform.pas:550
+msgid "in diesen Ordner:"
+msgstr "このフォルダーへ:"
+
+#: packerform.pas:401 packerform.pas:719
+msgid "leer = wie Master"
+msgstr "空欄 = マスターと同じ"
+
+#: packerform.pas:403
+msgid "leer = wie Stem %d"
+msgstr "空欄 = ステム %d と同じ"
+
+#: packerform.pas:540
+msgid "neben die Master-Datei"
+msgstr "マスターファイルの隣"
+
+#: packerform.pas:1291
+msgid "wird gepackt ..."
+msgstr "パック中 ..."
+
+#: packerform.pas:1099
+msgid "ähnlich: „%s“"
+msgstr "似た名前:「%s」"
+

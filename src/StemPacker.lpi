@@ -22,8 +22,8 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="0"/>
-      <MinorVersionNr Value="2"/>
-      <StringTable CompanyName="Elospeed" FileDescription="Elospeed StemPacker - fertige Spuren zu Traktor-Stems" InternalName="StemPacker" LegalCopyright="Elospeed - freie Software" OriginalFilename="StemPacker.exe" ProductName="Elospeed StemPacker" ProductVersion="0.2"/>
+      <MinorVersionNr Value="3"/>
+      <StringTable CompanyName="Elospeed" FileDescription="Elospeed StemPacker - fertige Spuren zu Traktor-Stems" InternalName="StemPacker" LegalCopyright="Elospeed - freie Software" OriginalFilename="StemPacker.exe" ProductName="Elospeed StemPacker" ProductVersion="0.3"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -54,6 +54,10 @@
       </Unit>
       <Unit>
         <Filename Value="packjob.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="packdetect.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
     </Units>

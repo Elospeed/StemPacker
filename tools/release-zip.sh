@@ -10,7 +10,7 @@
 #   StemMaker-Release, Prüfsumme wird kontrolliert), LIESMICH.txt (DE), README.txt (EN), LICENSE.txt,
 #   StemPacker-User-Guide.pdf (englische Anleitung mit Bildern, Quelle in docs/anleitung/),
 #   Example\ (3 kurze Testton-Songs im 5.1-DVD-Namensschema, hier erzeugt),
-#   lang\*.po (Englisch, Spanisch; Deutsch steckt in der Exe),
+#   lang\*.po (acht Sprachen; Deutsch steckt in der Exe),
 #   tools\ffmpeg.exe + Lizenz und Quellcode-Hinweis (LGPL-Build aus unserem
 #   Release ffmpeg-9.0.2, Prüfsumme wird kontrolliert).
 # Keine KI-Modelle: der StemPacker trennt nichts, er verpackt nur.
@@ -29,8 +29,8 @@ FFMPEG_URL="https://github.com/Elospeed/StemMaker/releases/download/ffmpeg-9.0.2
 FFMPEG_SHA="d350ded1fd523fdae90064c11b954497d2ba8f9ef3b10a2447f6717acc210af0"
 # StemPlayer kommt aus dem StemMaker-Release (eigenes Repo Elospeed/StemMaker).
 # Neue Version: URL, Prüfsumme und Pfad im ZIP hier anpassen.
-PLAYER_URL="https://github.com/Elospeed/StemMaker/releases/download/v2.1.1/StemMaker-2.1.1.zip"
-PLAYER_SHA="c1cc3a359aa2c9489b941d3eb8beebd501548dad899fba51abab2077eccf8f73"
+PLAYER_URL="https://github.com/Elospeed/StemMaker/releases/download/v2.2/StemMaker-2.2.zip"
+PLAYER_SHA="38654859b1a919dcfae449a7b52b242365eace88512448fd818fa564dcbf44f4"
 PLAYER_IN_ZIP="StemMaker/AddOns/StemPlayer.exe"
 
 ARBEIT=$(mktemp -d)

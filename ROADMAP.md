@@ -6,13 +6,12 @@ Was als Nächstes kommt. Erledigtes steht im [CHANGELOG](CHANGELOG.md), lose Ide
 
 ## Jetzt
 
-- Praxistest in Traktor Pro 4 durch den ersten Tester (5.1-DVD-Sammlung, 178 Songs), auch ALAC 24 Bit / 96 kHz.
+- Version 0.3 veröffentlichen (Einfach-Modus, neun Sprachen).
 
 ## Danach
 
-- Rückmeldungen einbauen, Version 1.0 mit Projektseite.
-- StemMaker übernimmt die fertige `StemPacker.exe` aus dem Release dieses Repositorys als AddOn (wie den StemTagger).
+- StemMaker übernimmt die fertige `StemPacker.exe` aus dem Release dieses Repositorys als AddOn (wie den StemTagger), geplant mit StemMaker 2.3.
+- Rückmeldungen einbauen, Version 1.0.
 
 ## Später
 
-- Weitere Sprachen wie StemMaker (Französisch, Portugiesisch (Brasilien), Italienisch, Japanisch, Niederländisch, Polnisch).

@@ -23,8 +23,8 @@ Alle Fenster müssen bei **100 %, 125 %, 150 % und 200 %** Windows-Skalierung ko
 
 ## Sprachen
 
-- Oberfläche auf Deutsch im Quelltext, Übersetzungen Englisch und Spanisch.
-- Jeder sichtbare Text läuft über `_('...')`. Danach `python lang-tools/i18n.py src src/lang` ausführen und die Übersetzung in `lang-tools/en.json` und `lang-tools/es.json` ergänzen. Der Build bricht ab, wenn eine Übersetzung fehlt oder `src/lang` nicht aktuell ist.
+- Oberfläche auf Deutsch im Quelltext, Übersetzungen wie StemMaker: Englisch, Spanisch, Französisch, Portugiesisch (Brasilien), Italienisch, Japanisch, Niederländisch und Polnisch.
+- Jeder sichtbare Text läuft über `_('...')`. Danach `python lang-tools/i18n.py src src/lang` ausführen und die Übersetzung in allen Sprachdateien ergänzen (`lang-tools/<code>.json`). Der Build bricht ab, wenn eine Übersetzung fehlt oder `src/lang` nicht aktuell ist.
 - Programmlogik nie auf übersetzten Text stützen (z. B. nie auf eine Beschriftung vergleichen).
 
 ## Code

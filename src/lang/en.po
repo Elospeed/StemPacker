@@ -5,375 +5,419 @@ msgstr ""
 "X-Source-Language: de\n"
 "Project-Id-Version: Elospeed StemPacker\n"
 
-#: packerform.pas:976
+#: packerform.pas:1152
 msgid "%d Songs gefunden, %d bereit zum Packen."
 msgstr "%d songs found, %d ready to pack."
 
-#: packerform.pas:1231
+#: packerform.pas:1407
 msgid "%d Stem-Dateien erstellt, %d Fehler, %d übersprungen."
 msgstr "%d stem files created, %d errors, %d skipped."
 
-#: packerform.pas:1221
+#: packerform.pas:1397
 msgid "%d fertig, %d Fehler, %d übersprungen."
 msgstr "%d done, %d errors, %d skipped."
 
-#: packerform.pas:1034
+#: packerform.pas:1210
 msgid "%s ist %s s kürzer als %s"
 msgstr "%s is %s s shorter than %s"
 
-#: packerform.pas:1037
+#: packerform.pas:1213
 msgid "%s ist %s s länger als %s"
 msgstr "%s is %s s longer than %s"
 
-#: packerform.pas:921
+#: packerform.pas:1097
 msgid "%s „%s“"
 msgstr "%s “%s”"
 
-#: packerform.pas:342
+#: packerform.pas:367
 msgid "(Tags und Cover)"
 msgstr "(tags and cover)"
 
-#: packerform.pas:523
+#: packerform.pas:580
 msgid "24 Bit / 96 kHz ist noch nicht in Traktor geprüft. Bitte zuerst mit einem Song testen."
 msgstr "24 bit / 96 kHz is not yet tested in Traktor. Please try one song first."
 
-#: packerform.pas:434
+#: packerform.pas:490
 msgid "5.1-DVD: „Song (DOWNMIX #1)“ + „Song (A)“ … „(D)“"
 msgstr "5.1 DVD: \"Song (DOWNMIX #1)\" + \"Song (A)\" … \"(D)\""
 
-#: packerform.pas:520
+#: packerform.pas:577
 msgid "AAC 320 kbit/s (wie Traktor-Stems)"
 msgstr "AAC 320 kbit/s (like Traktor stems)"
 
-#: packerform.pas:522
+#: packerform.pas:579
 msgid "ALAC 24 Bit, Original-Abtastrate (Test)"
 msgstr "ALAC 24 bit, original sample rate (test)"
 
-#: packerform.pas:521
+#: packerform.pas:578
 msgid "ALAC verlustfrei, 16 Bit / 44,1 kHz"
 msgstr "ALAC lossless, 16 bit / 44.1 kHz"
 
-#: packerform.pas:591
+#: packerform.pas:648
 msgid "Abbrechen"
 msgstr "Cancel"
 
-#: packerform.pas:582
+#: packerform.pas:639
 msgid "Alle packen"
 msgstr "Pack all"
 
-#: packerform.pas:444
+#: packerform.pas:500
 msgid "Auch in Unterordnern suchen. Die Unterordner müssen in allen Ordnern gleich heissen."
 msgstr "Also search subfolders. The subfolders must have the same names in every folder."
 
-#: packerform.pas:506
+#: packerform.pas:563
 msgid "Ausgabeordner (Unterordner werden übernommen)"
 msgstr "Output folder (subfolders are kept)"
 
-#: packerform.pas:1458
+#: packerform.pas:1659
 msgid "Ausgabeordner wählen"
 msgstr "Choose output folder"
 
-#: packerform.pas:354
+#: packerform.pas:379
 msgid "Beispiel: „* (A)“ findet „Hello (A).wav“, der Song heisst dann „Hello“."
 msgstr "Example: \"* (A)\" finds \"Hello (A).wav\", the song is then called \"Hello\"."
 
-#: packerform.pas:863
+#: packerform.pas:1039
 msgid "Bitte einen Ausgabeordner angeben (oder „neben die Master-Datei“ wählen)."
 msgstr "Please enter an output folder (or choose \"next to the master file\")."
 
-#: packerform.pas:1312
+#: packerform.pas:1488
 msgid "Bitte im nächsten Fenster die ffmpeg.exe auswählen (z. B. aus StemMaker\\tools\\)."
 msgstr "Please select ffmpeg.exe in the next window (e.g. from StemMaker\\tools\\)."
 
-#: packerform.pas:1508 packerform.pas:1586
+#: packerform.pas:1709 packerform.pas:1795
 msgid "Breche ab ..."
 msgstr "Cancelling ..."
 
-#: packerform.pas:537
+#: packerform.pas:594
 msgid "Cover aus dem Ordner, wenn die Datei keins hat"
 msgstr "Cover from the folder if the file has none"
 
-#: packerform.pas:435
+#: packerform.pas:491
 msgid "DAW-Export: „Song“ + „Song_drums“ … „_vocals“"
 msgstr "DAW export: \"Song\" + \"Song_drums\" … \"_vocals\""
 
-#: packerform.pas:1528
+#: packerform.pas:1729
 msgid "Danke an Cuiusquemodi für die Idee, den Test mit 178 Songs und die vielen Rückmeldungen."
 msgstr "Thanks to Cuiusquemodi for the idea, the test with 178 songs and lots of feedback."
 
-#: packerform.pas:621
+#: packerform.pas:678
 msgid "Dateien"
 msgstr "Files"
 
-#: packerform.pas:353
+#: packerform.pas:378
 msgid "Dateiname ohne Endung, * steht für den Songnamen."
 msgstr "File name without extension, * stands for the song name."
 
-#: packerform.pas:858
+#: packerform.pas:1034
 msgid "Der Ordner von „%s“ fehlt oder existiert nicht."
 msgstr "The folder for \"%s\" is missing or does not exist."
 
-#: packerform.pas:1233
+#: packerform.pas:473
+msgid "Die Benennung wird erkannt, z. B. „Song_drums“, „Song (Vocals)“, „Song (A)“ oder „Song_1“."
+msgstr "The naming is detected, e.g. \"Song_drums\", \"Song (Vocals)\", \"Song (A)\" or \"Song_1\"."
+
+#: packerform.pas:1409
 msgid "Die Dateien lassen sich direkt in Traktor laden. Ordner jetzt öffnen?"
 msgstr "The files can be loaded straight into Traktor. Open the folder now?"
 
-#: packerform.pas:437
+#: packerform.pas:493
 msgid "Eigene Muster"
 msgstr "Custom patterns"
 
-#: packerform.pas:533
+#: packerform.pas:850
+msgid "Erkannt: „%s“ … „%s“, %s."
+msgstr "Detected: \"%s\" … \"%s\", %s."
+
+#: packerform.pas:590
 msgid "Extras:"
 msgstr "Extras:"
 
-#: packerform.pas:453
+#: packerform.pas:510
 msgid "Farbe"
 msgstr "Colour"
 
-#: packerform.pas:322
+#: packerform.pas:347
 msgid "Farbe des Stems in Traktor (klicken zum Ändern)"
 msgstr "Colour of the stem in Traktor (click to change)"
 
-#: packerform.pas:534
+#: packerform.pas:591
 msgid "Fehlende Stems still füllen"
 msgstr "Fill missing stems with silence"
 
-#: packerform.pas:1152
+#: packerform.pas:1328
 msgid "Fehler: Datei konnte nicht gespeichert werden"
 msgstr "Error: file could not be saved"
 
-#: packerform.pas:1146
+#: packerform.pas:1322
 msgid "Fehler: Ergebnis hat nicht 5 Spuren"
 msgstr "Error: result does not have 5 tracks"
 
-#: packerform.pas:1140
+#: packerform.pas:1316
 msgid "Fehler: Stem-Block"
 msgstr "Error: stem block"
 
-#: packerform.pas:1127
+#: packerform.pas:1303
 msgid "Fehler: ffmpeg Code %d (siehe Log)"
 msgstr "Error: ffmpeg code %d (see log)"
 
-#: packerform.pas:535
+#: packerform.pas:592
 msgid "Fehlt ein Stem, wird eine stille Spur eingesetzt, statt den Song zu überspringen."
 msgstr "If a stem is missing, a silent track is used instead of skipping the song."
 
-#: packerform.pas:512
+#: packerform.pas:569
 msgid "Format:"
 msgstr "Format:"
 
-#: packerform.pas:1530
+#: packerform.pas:1731
 msgid "Frei unter der MIT-Lizenz. Enthält ffmpeg (LGPL)."
 msgstr "Free under the MIT licence. Includes ffmpeg (LGPL)."
 
-#: packerform.pas:440
+#: packerform.pas:470
+msgid "Für Benennungen, die nicht erkannt werden: Ordner, Namensmuster, Stem-Namen und Farben je Spur selbst eintragen."
+msgstr "For naming that is not detected: enter folder, name pattern, stem name and colour for each track yourself."
+
+#: packerform.pas:496
 msgid "Für Spuren ohne fertigen Master: die vier Stems werden ohne Pegeländerung zusammengemischt."
 msgstr "For tracks without a finished master: the four stems are mixed together without changing the level."
 
-#: packerform.pas:538
+#: packerform.pas:595
 msgid "Hat die Master-Datei kein Cover, wird cover.jpg, folder.jpg, front.jpg oder <Song>.jpg aus ihrem Ordner genommen."
 msgstr "If the master file has no cover, cover.jpg, folder.jpg, front.jpg or <song>.jpg from its folder is used."
 
-#: packerform.pas:852
+#: packerform.pas:1028
 msgid "Im Muster von „%s“ fehlt der Stern * für den Songnamen."
 msgstr "The pattern for \"%s\" is missing the star * for the song name."
 
-#: packerform.pas:606
+#: packerform.pas:663
 msgid "Info"
 msgstr "About"
 
-#: packerform.pas:549 packerform.pas:1545
+#: packerform.pas:606 packerform.pas:1746
 msgid "Kaffee spendieren"
 msgstr "Buy me a coffee"
 
-#: packerform.pas:974
+#: packerform.pas:1150
 msgid "Keine Songs gefunden. Ordner und Muster prüfen (Stern * = Songname)."
 msgstr "No songs found. Check folders and patterns (star * = song name)."
 
-#: packerform.pas:599
+#: packerform.pas:792
+msgid "Keine bekannte Benennung gefunden. Bitte Ordner und Muster selbst einstellen."
+msgstr "No known naming found. Please set folders and patterns yourself."
+
+#: packerform.pas:656
 msgid "Log anzeigen"
 msgstr "Show log"
 
-#: packerform.pas:1015
+#: packerform.pas:1191
 msgid "Längen prüfen"
 msgstr "Check lengths"
 
-#: packerform.pas:1230
+#: packerform.pas:1406
 msgid "Längen-Warnung bei %d Song(s): eine Spur ist kürzer oder länger als der Rest (siehe Liste). Bitte in Traktor anhören, ob alles zusammenpasst."
 msgstr "Length warning for %d song(s): one track is shorter or longer than the rest (see the list). Please listen in Traktor whether everything is in sync."
 
-#: packerform.pas:286
+#: packerform.pas:311
 msgid "Master"
 msgstr "Master"
 
-#: packerform.pas:439
+#: packerform.pas:846
+msgid "Master aus den Stems gemischt"
+msgstr "master mixed from the stems"
+
+#: packerform.pas:495
 msgid "Master aus den Stems mischen"
 msgstr "Mix master from the stems"
 
-#: packerform.pas:333
+#: packerform.pas:848
+msgid "Master „%s“"
+msgstr "master \"%s\""
+
+#: packerform.pas:358
 msgid "Name des Stems, so zeigt ihn Traktor an"
 msgstr "Name of the stem, as Traktor shows it"
 
-#: packerform.pas:457
+#: packerform.pas:514
 msgid "Namensmuster (* = Songname)"
 msgstr "Name pattern (* = song name)"
 
-#: packerform.pas:436
+#: packerform.pas:492
 msgid "Nummern: „Song_0“ (Master) bis „Song_4“"
 msgstr "Numbers: \"Song_0\" (master) to \"Song_4\""
 
-#: packerform.pas:459
+#: packerform.pas:516
 msgid "Ordner"
 msgstr "Folder"
 
-#: packerform.pas:374
+#: packerform.pas:399
 msgid "Ordner mit den Master-Dateien"
 msgstr "Folder with the master files"
 
-#: packerform.pas:660
+#: packerform.pas:463
+msgid "Ordner mit den Spuren hier hineinziehen"
+msgstr "Drag the folder with your tracks here"
+
+#: packerform.pas:251
+msgid "Ordner mit den Spuren hineinziehen oder „Ordner wählen …“ klicken."
+msgstr "Drag in the folder with your tracks or click \"Choose folder …\"."
+
+#: packerform.pas:1617
+msgid "Ordner mit den Spuren wählen"
+msgstr "Choose the folder with your tracks"
+
+#: packerform.pas:717
 msgid "Ordner mit den Stems"
 msgstr "Folder with the stems"
 
-#: packerform.pas:231
+#: packerform.pas:249
 msgid "Ordner und Muster einstellen, dann „Songs suchen“."
 msgstr "Set folders and patterns, then \"Find songs\"."
 
-#: packerform.pas:366 packerform.pas:1441
+#: packerform.pas:467
+msgid "Ordner und Muster selbst einstellen"
+msgstr "Set folders and patterns myself"
+
+#: packerform.pas:391 packerform.pas:1642
 msgid "Ordner wählen"
 msgstr "Choose folder"
 
-#: packerform.pas:1117
+#: packerform.pas:460
+msgid "Ordner wählen …"
+msgstr "Choose folder …"
+
+#: packerform.pas:1293
 msgid "Packe %s"
 msgstr "Packing %s"
 
-#: packerform.pas:1526
+#: packerform.pas:1727
 msgid "Packt fertige Einzelspuren (Master und 4 Stems) ohne KI-Trennung zu Traktor-Stem-Dateien."
 msgstr "Packs finished single tracks (master and 4 stems) into Traktor stem files, without AI separation."
 
-#: packerform.pas:620
+#: packerform.pas:677
 msgid "Song"
 msgstr "Song"
 
-#: packerform.pas:1207
+#: packerform.pas:1383
 msgid "Song %d von %d: %s"
 msgstr "Song %d of %d: %s"
 
-#: packerform.pas:574
+#: packerform.pas:631
 msgid "Songs suchen"
 msgstr "Find songs"
 
-#: packerform.pas:526
+#: packerform.pas:583
 msgid "Sonst werden Songs übersprungen, deren Stem-Datei es schon gibt."
 msgstr "Otherwise songs whose stem file already exists are skipped."
 
-#: packerform.pas:452
+#: packerform.pas:509
 msgid "Spur"
 msgstr "Track"
 
-#: packerform.pas:622
+#: packerform.pas:679
 msgid "Status"
 msgstr "Status"
 
-#: packerform.pas:287
+#: packerform.pas:312
 msgid "Stem %d"
 msgstr "Stem %d"
 
-#: packerform.pas:455
+#: packerform.pas:512
 msgid "Stem-Name"
 msgstr "Stem name"
 
-#: packerform.pas:1085
+#: packerform.pas:1261
 msgid "Tags lesen"
 msgstr "Reading tags"
 
-#: packerform.pas:443
+#: packerform.pas:499
 msgid "Unterordner durchsuchen"
 msgstr "Search subfolders"
 
-#: packerform.pas:525
+#: packerform.pas:582
 msgid "Vorhandene überschreiben"
 msgstr "Overwrite existing"
 
-#: packerform.pas:428
+#: packerform.pas:484
 msgid "Vorlage:"
 msgstr "Preset:"
 
-#: packerform.pas:623
+#: packerform.pas:680
 msgid "Ziel"
 msgstr "Target"
 
-#: packerform.pas:476
+#: packerform.pas:533
 msgid "Ziel:"
 msgstr "Target:"
 
-#: packerform.pas:1121
+#: packerform.pas:1297
 msgid "abgebrochen"
 msgstr "cancelled"
 
-#: packerform.pas:964
+#: packerform.pas:1140
 msgid "bereit"
 msgstr "ready"
 
-#: packerform.pas:962
+#: packerform.pas:1138
 msgid "bereit, still gefüllt: "
 msgstr "ready, filled with silence: "
 
-#: packerform.pas:1027
+#: packerform.pas:1203
 msgid "der Master"
 msgstr "the master"
 
-#: packerform.pas:1027
+#: packerform.pas:1203
 msgid "die längste Spur"
 msgstr "the longest track"
 
-#: packerform.pas:956
+#: packerform.pas:1132
 msgid "fehlt: "
 msgstr "missing: "
 
-#: packerform.pas:1162
+#: packerform.pas:1338
 msgid "fertig"
 msgstr "done"
 
-#: packerform.pas:1158
+#: packerform.pas:1334
 msgid "fertig, Achtung: "
 msgstr "done, warning: "
 
-#: packerform.pas:211
+#: packerform.pas:229
 msgid "fertige Spuren zu Stem-Dateien packen"
 msgstr "pack finished tracks into stem files"
 
-#: packerform.pas:229
+#: packerform.pas:247
 msgid "ffmpeg.exe nicht gefunden - wird beim ersten Gebrauch abgefragt."
 msgstr "ffmpeg.exe not found - you will be asked for it on first use."
 
-#: packerform.pas:1311
+#: packerform.pas:1487
 msgid "ffmpeg.exe wurde nicht gefunden."
 msgstr "ffmpeg.exe was not found."
 
-#: packerform.pas:958
+#: packerform.pas:1134
 msgid "gibt es schon, wird übersprungen"
 msgstr "already exists, will be skipped"
 
-#: packerform.pas:493
+#: packerform.pas:550
 msgid "in diesen Ordner:"
 msgstr "into this folder:"
 
-#: packerform.pas:376 packerform.pas:662
+#: packerform.pas:401 packerform.pas:719
 msgid "leer = wie Master"
 msgstr "empty = same as master"
 
-#: packerform.pas:378
+#: packerform.pas:403
 msgid "leer = wie Stem %d"
 msgstr "empty = same as stem %d"
 
-#: packerform.pas:483
+#: packerform.pas:540
 msgid "neben die Master-Datei"
 msgstr "next to the master file"
 
-#: packerform.pas:1115
+#: packerform.pas:1291
 msgid "wird gepackt ..."
 msgstr "packing ..."
 
-#: packerform.pas:923
+#: packerform.pas:1099
 msgid "ähnlich: „%s“"
 msgstr "similar: “%s”"
 

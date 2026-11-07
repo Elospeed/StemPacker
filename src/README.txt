@@ -1,4 +1,4 @@
-Elospeed StemPacker 0.2  -  by Elospeed  (ko-fi.com/elospeed)
+Elospeed StemPacker 0.3  -  by Elospeed  (ko-fi.com/elospeed)
 ====================================================================
 
 Turns finished single tracks into Traktor stem files (.stem.mp4), WITHOUT
@@ -15,17 +15,23 @@ HOW TO
    StemMaker's ffmpeg.)
 2. Start StemPacker.exe. If Windows says "Windows protected your PC" (the
    program is not signed): "More info" -> "Run anyway".
-3. Pick a preset or enter your own name patterns, then set the folders
-   ("..." button, or drop a folder onto the window).
-4. "Find songs": the list shows every song, how many files were found and
-   what is missing.
+3. Drop the folder with your tracks onto the window (or "Choose folder ...").
+   StemPacker detects the naming by itself, e.g. "Song_drums",
+   "Song - Bass", "Song (Vocals)", "Song (A)" to "(D)" or "Song_1" to
+   "_4", even when master and stems sit in different subfolders.
+   If there is no master, it is mixed from the stems.
+   The list shows every song, how many files were found and what is
+   missing.
+4. If nothing is detected: tick "Set folders and patterns myself" and
+   enter folder and name pattern for each track (see below), then
+   "Find songs".
 5. "Pack all". Done: the stem files load straight into Traktor.
 6. To listen without Traktor: start StemPlayer.exe and open a finished
    .stem.mp4 file. M / S mute or solo each stem.
 
 
-NAME PATTERNS
--------------
+NAME PATTERNS (Set folders and patterns myself)
+-----------------------------------------------
 Master and stems 1 to 4 each have a folder and a pattern. The star *
 stands for the song name; the file extension is not part of the pattern.
 Upper/lower case does not matter.

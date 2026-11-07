@@ -8,6 +8,16 @@ Version 0.1 entstand als AddOn im Repository [Elospeed/StemMaker](https://github
 
 ---
 
+## 0.3 – Einfach-Modus und neun Sprachen (7. November 2026)
+
+### Neu
+- **Einfach-Modus:** Ordner aufs Fenster ziehen oder „Ordner wählen …“ klicken. Der StemPacker erkennt die Benennung der Dateien selbst und zeigt gleich die Songs: Wörter wie `Song_drums`, `Song - Bass`, `Song (Vocals)` oder `Song [Other]` (auch `vox`, `melody`, `instruments` …), Nummern `Song_1` bis `_4` mit Master `_0`, und 5.1-DVD `Song (A)` bis `(D)` mit `(DOWNMIX #1)`. Master und Stems dürfen in verschiedenen Unterordnern liegen. Gibt es keinen Master, wird er aus den Stems gemischt. Was erkannt wurde, steht unter dem Ablagefeld.
+- **Ordner und Muster selbst einstellen:** die bisherigen fünf Zeilen mit Ordner, Namensmuster, Stem-Name und Farbe gibt es weiter, mit einem Haken. Wird nichts erkannt, gehen sie von selbst auf.
+- **Neun Sprachen wie StemMaker:** neu Französisch, Portugiesisch (Brasilien), Italienisch, Japanisch, Niederländisch und Polnisch.
+- Der mitgelieferte StemPlayer kommt jetzt aus StemMaker 2.2 und spricht damit auch die neuen Sprachen.
+
+---
+
 ## 0.2 – erste öffentliche Version (4. November 2026)
 
 ### Neu
