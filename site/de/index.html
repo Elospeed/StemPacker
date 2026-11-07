@@ -54,7 +54,7 @@
   "description": "Stapel-Werkzeug, das fertige Spuren (Master und bis zu vier Stems) ohne KI-Trennung zu Traktor-Stem-Dateien (.stem.mp4) verpackt, mit eigenen Stem-Namen und Farben, Tags und Cover vom Master.",
   "url": "https://elospeed.github.io/StemPacker/de/",
   "downloadUrl": "https://github.com/Elospeed/StemPacker/releases/latest",
-  "softwareVersion": "0.2",
+  "softwareVersion": "0.3",
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -95,10 +95,10 @@
       <li>Portabel, ohne Installation</li>
       <li>Ohne KI, deine Dateien wie sie sind</li>
       <li>Stapel für ganze Sammlungen</li>
-      <li>Deutsch, Englisch, Spanisch</li>
+      <li>Neun Sprachen</li>
     </ul>
     <figure class="shot hero-shot">
-      <div class="bar"><img src="../img/icon-32.png" alt=""><span>Elospeed StemPacker 0.2</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
+      <div class="bar"><img src="../img/icon-32.png" alt=""><span>Elospeed StemPacker 0.3</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
       <img src="../img/stempacker-de.png" width="900" height="640" alt="StemPacker-Fenster: Vorlage 5.1-DVD, Ordner und Namensmuster für Master und Stem 1 bis 4 mit den Stem-Namen Front, LFE, Center, Rear und ihren Farben, darunter die Songliste">
     </figure>
   </div>
@@ -109,8 +109,8 @@
     <h2>Gemacht für Stems, die es schon gibt</h2>
     <p class="sub">Traktors eigener Stem Creator packt einen Song nach dem anderen. Der StemPacker macht das für einen ganzen Ordner.</p>
     <div class="grid">
-      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Ordner und Muster je Spur</h3><p>Ein Stern steht für den Songnamen: <code>* (DOWNMIX #1)</code> findet den Master, <code>* (A)</code> bis <code>* (D)</code> die Stems, auch in verschiedenen Ordnern. Alles in einem Ordner geht auch (<code>*_drums</code>, <code>*_bass</code> …).</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Deine Namen und Farben</h3><p>Jeder Stem bekommt den Namen und die Farbe, die du einstellst, zum Beispiel Front, LFE, Center und Rear für 5.1-Kanäle. Traktor zeigt sie direkt am Deck.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Ordner hineinziehen, fertig</h3><p>Der StemPacker erkennt die übliche Benennung selbst: <code>Song_drums</code>, <code>Song - Bass</code>, <code>Song (Vocals)</code>, <code>Song (A)</code> bis <code>(D)</code> von der 5.1-DVD, <code>Song_1</code> bis <code>_4</code> und mehr, auch wenn Master und Stems in getrennten Unterordnern liegen. Kein Master? Er wird aus den Stems gemischt.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Oder selbst einstellen</h3><p>Ungewöhnliche Namen? Haken bei „Ordner und Muster selbst einstellen“: ein Stern steht für den Songnamen, zum Beispiel <code>* (DOWNMIX #1)</code> für den Master und <code>* (A)</code> bis <code>* (D)</code> für die Stems, auf Wunsch jeweils in einem eigenen Ordner. Auch Stem-Namen und Farben bestimmst du, zum Beispiel Front, LFE, Center und Rear.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags und Cover vom Master</h3><p>Titel, Interpret, Album, BPM, Tonart, Label und Cover kommen aus der Master-Datei. Kein Titel? Dann gilt der Songname. Kein Cover? <code>cover.jpg</code> oder <code>&lt;Song&gt;.jpg</code> aus dem Ordner.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC oder verlustfrei ALAC</h3><p>AAC 320 kbit/s wie Traktors eigene Stems, ALAC verlustfrei 16 Bit oder ALAC 24 Bit mit der Original-Abtastrate (noch im Test).</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Lücken im Griff</h3><p>Songs ohne fertigen Master: aus den Stems mischen, ohne Pegeländerung. Ein Stem fehlt? Die Liste zeigt den gesuchten Dateinamen und, wenn es eine gibt, eine ähnlich heissende Datei. Mit Stille füllen oder den Song überspringen. Ist eine Spur kürzer oder länger als der Master, gibt es eine Warnung.</p></div>
@@ -125,8 +125,8 @@
     <p class="sub">Vier Schritte, keine Installation.</p>
     <ol class="steps">
       <li><strong>Herunterladen und entpacken</strong><code>StemPacker-&lt;Version&gt;.zip</code> laden, irgendwo entpacken und <code>StemPacker.exe</code> starten. Die Anleitung <code>StemPacker-User-Guide.pdf</code> liegt im selben Ordner (Englisch).</li>
-      <li><strong>Ordner und Muster einstellen</strong>Vorlage wählen oder eigene Muster eintragen, dann die Ordner wählen (oder einen Ordner aufs Fenster ziehen).</li>
-      <li><strong>Songs suchen</strong>Die Liste zeigt jeden Song, wie viele Dateien gefunden wurden und was fehlt.</li>
+      <li><strong>Ordner hineinziehen</strong>Den Ordner mit den Spuren aufs Fenster ziehen oder „Ordner wählen …“ klicken. Die Benennung wird selbst erkannt.</li>
+      <li><strong>Liste prüfen</strong>Die Liste zeigt jeden Song, wie viele Dateien gefunden wurden und was fehlt.</li>
       <li><strong>Alle packen</strong>Jeder Song wird zu <code>&lt;Song&gt;.stem.mp4</code> neben dem Master oder in einem Ordner deiner Wahl. In Traktor Pro 4 laden, fertig.</li>
     </ol>
   </div>
@@ -180,7 +180,15 @@
     </details>
     <details>
       <summary>Ein Song zeigt „fehlt“. Was nun?</summary>
-      <p>Die Liste nennt den gesuchten Dateinamen, zum Beispiel <code>Stem 2 „Hallo (B)“</code>, und eine ähnlich heissende Datei, wenn sie eine findet (andere Leerzeichen, Satzzeichen oder Gross-/Kleinschreibung). Datei umbenennen oder Muster anpassen, dann nochmals „Songs suchen“.</p>
+      <p>Die Liste nennt den gesuchten Dateinamen, zum Beispiel <code>Stem 2 „Hallo (B)“</code>, und eine ähnlich heissende Datei, wenn sie eine findet (andere Leerzeichen, Satzzeichen oder Gross-/Kleinschreibung). Datei umbenennen und den Ordner nochmals hineinziehen, oder das Muster unter „Ordner und Muster selbst einstellen“ anpassen.</p>
+    </details>
+    <details>
+      <summary>Meine Dateien heissen anders. Geht das trotzdem?</summary>
+      <p>Sehr wahrscheinlich. Wird die Benennung nicht erkannt, öffnet der StemPacker „Ordner und Muster selbst einstellen“: pro Spur ein Muster mit Stern für den Songnamen eintragen, zum Beispiel <code>*-dr</code> für <code>Hallo-dr.wav</code>.</p>
+    </details>
+    <details>
+      <summary>Welche Sprachen spricht er?</summary>
+      <p>Deutsch, Englisch, Spanisch, Französisch, Portugiesisch (Brasilien), Italienisch, Japanisch, Niederländisch und Polnisch. Er nimmt die Sprache von Windows oder die in StemMaker eingestellte.</p>
     </details>
     <details>
       <summary>Kann er DVDs einlesen oder .cue-Dateien schneiden?</summary>

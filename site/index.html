@@ -54,7 +54,7 @@
   "description": "Batch tool that packs finished tracks (master plus up to four stems) into Traktor stem files (.stem.mp4) without AI separation, with custom stem names and colours, tags and cover from the master.",
   "url": "https://elospeed.github.io/StemPacker/",
   "downloadUrl": "https://github.com/Elospeed/StemPacker/releases/latest",
-  "softwareVersion": "0.2",
+  "softwareVersion": "0.3",
   "license": "https://opensource.org/licenses/MIT",
   "isAccessibleForFree": true,
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -95,10 +95,10 @@
       <li>Portable, no installation</li>
       <li>No AI, your files as they are</li>
       <li>Batch for whole collections</li>
-      <li>English, German, Spanish</li>
+      <li>Nine languages</li>
     </ul>
     <figure class="shot hero-shot">
-      <div class="bar"><img src="img/icon-32.png" alt=""><span>Elospeed StemPacker 0.2</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
+      <div class="bar"><img src="img/icon-32.png" alt=""><span>Elospeed StemPacker 0.3</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
       <img src="img/stempacker-en.png" width="900" height="640" alt="StemPacker window: preset 5.1 DVD, folders and name patterns for master and stems 1 to 4 with stem names Front, LFE, Center, Rear and their colours, below a list of three packed songs">
     </figure>
   </div>
@@ -109,8 +109,8 @@
     <h2>Made for stems you already have</h2>
     <p class="sub">Traktor's own Stem Creator packs one song at a time. StemPacker does the same for a whole folder.</p>
     <div class="grid">
-      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Folder and pattern per track</h3><p>A star stands for the song name: <code>* (DOWNMIX #1)</code> finds the master, <code>* (A)</code> to <code>* (D)</code> the stems, even in different folders. One folder for everything works too (<code>*_drums</code>, <code>*_bass</code> …).</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Your names and colours</h3><p>Each stem gets the name and colour you set, for example Front, LFE, Center and Rear for 5.1 channels. Traktor shows them directly on the deck.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Drop a folder, done</h3><p>StemPacker recognises the usual naming by itself: <code>Song_drums</code>, <code>Song - Bass</code>, <code>Song (Vocals)</code>, <code>Song (A)</code> to <code>(D)</code> from a 5.1 DVD, <code>Song_1</code> to <code>_4</code> and more, even with master and stems in separate subfolders. No master? It is mixed from the stems.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Or set it up yourself</h3><p>Unusual names? Tick “Set folders and patterns myself”: a star stands for the song name, for example <code>* (DOWNMIX #1)</code> for the master and <code>* (A)</code> to <code>* (D)</code> for the stems, each in its own folder if you like. Stem names and colours are yours too, for example Front, LFE, Center and Rear.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags and cover from the master</h3><p>Title, artist, album, BPM, key, label and cover are copied from the master file. No title? The song name is used. No cover? <code>cover.jpg</code> or <code>&lt;song&gt;.jpg</code> from the folder.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC or lossless ALAC</h3><p>AAC 320 kbit/s like Traktor's own stems, ALAC lossless 16 bit, or ALAC 24 bit at the original sample rate (still in testing).</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Gaps handled</h3><p>Songs without a finished master: mix it from the stems, without changing the level. A stem missing? The list shows the file name it looked for and a similarly named file, if there is one. Fill it with silence, or skip the song. A track shorter or longer than the master gets a warning.</p></div>
@@ -125,8 +125,8 @@
     <p class="sub">Four steps, no installation.</p>
     <ol class="steps">
       <li><strong>Download and unzip</strong>Get <code>StemPacker-&lt;version&gt;.zip</code>, unzip it anywhere and start <code>StemPacker.exe</code>. The guide <code>StemPacker-User-Guide.pdf</code> is in the same folder.</li>
-      <li><strong>Set folders and patterns</strong>Pick a preset or type your own patterns, then choose the folders (or drop a folder onto the window).</li>
-      <li><strong>Find songs</strong>The list shows every song, how many files were found and what is missing.</li>
+      <li><strong>Drop your folder</strong>Drag the folder with your tracks onto the window, or click “Choose folder …”. The naming is detected by itself.</li>
+      <li><strong>Check the list</strong>The list shows every song, how many files were found and what is missing.</li>
       <li><strong>Pack all</strong>Each song becomes <code>&lt;song&gt;.stem.mp4</code> next to the master or in a folder of your choice. Load them into Traktor Pro 4.</li>
     </ol>
   </div>
@@ -180,7 +180,15 @@
     </details>
     <details>
       <summary>A song shows “missing”. What now?</summary>
-      <p>The list names the file it looked for, for example <code>Stem 2 “Hello (B)”</code>, and a similarly named file if it finds one (other spaces, punctuation or upper and lower case). Rename the file or adjust the pattern, then click “Find songs” again.</p>
+      <p>The list names the file it looked for, for example <code>Stem 2 “Hello (B)”</code>, and a similarly named file if it finds one (other spaces, punctuation or upper and lower case). Rename the file and drop the folder again, or adjust the pattern under “Set folders and patterns myself”.</p>
+    </details>
+    <details>
+      <summary>My files are named differently. Does it still work?</summary>
+      <p>Most likely. If the naming is not recognised, StemPacker opens “Set folders and patterns myself”: enter a pattern per track with a star for the song name, for example <code>*-dr</code> for <code>Hello-dr.wav</code>.</p>
+    </details>
+    <details>
+      <summary>Which languages does it speak?</summary>
+      <p>English, German, Spanish, French, Portuguese (Brazil), Italian, Japanese, Dutch and Polish. It uses the language of Windows, or the one set in StemMaker.</p>
     </details>
     <details>
       <summary>Can it read DVDs or cut .cue files?</summary>
