@@ -1,4 +1,4 @@
-# Elospeed StemPacker 0.2
+# Elospeed StemPacker 0.3
 
 **by Elospeed**
 
@@ -8,11 +8,12 @@ Turns **finished single tracks into Traktor stem files** (`*.stem.mp4`), **witho
 
 StemPacker is part of the [Elospeed StemMaker](https://github.com/Elospeed/StemMaker) family. StemMaker *separates* your music into stems with AI; StemPacker *packs* stems you already have.
 
-> **Status:** version 0.2, tested with 178 songs in Traktor Pro 4. Please work with copies of your files.
+> **Status:** version 0.3, version 0.1 tested with 178 songs in Traktor Pro 4. Please work with copies of your files.
 
 ## Features
 
-- **Folder + name pattern per track:** the star `*` stands for the song name. Example 5.1 DVD: master `* (DOWNMIX #1)` in folder 1, stems `* (A)` … `* (D)` in folder 2. Example DAW export: master `*`, stems `*_drums`, `*_bass`, `*_other`, `*_vocals` in one folder.
+- **Simple mode:** drop one folder onto the window. StemPacker detects the naming by itself (`Song_drums`, `Song - Bass`, `Song (Vocals)`, `Song (A)` … `(D)`, `Song_1` … `_4` and more) and finds master and stems, even in separate subfolders. Without a master file, the master is mixed from the stems.
+- **Or set it yourself — folder + name pattern per track:** the star `*` stands for the song name. Example 5.1 DVD: master `* (DOWNMIX #1)` in folder 1, stems `* (A)` … `* (D)` in folder 2. Example DAW export: master `*`, stems `*_drums`, `*_bass`, `*_other`, `*_vocals` in one folder.
 - **Presets:** 5.1 DVD, DAW export, numbers, custom. Subfolders optional.
 - **Your own stem names and colours**, shown directly in Traktor.
 - **Tags and cover from the master** (title, artist, album, BPM, key, label, ISRC …). No title? The song name is used. Cover from the folder if the master has none.
@@ -20,7 +21,7 @@ StemPacker is part of the [Elospeed StemMaker](https://github.com/Elospeed/StemM
 - **Mix the master from the stems**, **fill missing stems with silence**, overwrite or skip finished songs.
 - **Helpful checks:** if a stem is missing, the list shows the file name it looked for and a similarly named file, if there is one. A track that is shorter or longer than the master gets a warning.
 - Your source files are only read, never changed. Log file `logs\StemPacker.log`.
-- English, German and Spanish. Works at 100 % to 200 % Windows scaling.
+- Nine languages: English, German, Spanish, French, Portuguese (Brazil), Italian, Japanese, Dutch and Polish. Works at 100 % to 200 % Windows scaling.
 
 ## Download
 

@@ -1,0 +1,423 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: nl\n"
+"X-Source-Language: de\n"
+"Project-Id-Version: Elospeed StemPacker\n"
+
+#: packerform.pas:1159
+msgid "%d Songs gefunden, %d bereit zum Packen."
+msgstr "%d nummers gevonden, %d klaar om te verpakken."
+
+#: packerform.pas:1414
+msgid "%d Stem-Dateien erstellt, %d Fehler, %d übersprungen."
+msgstr "%d stem-bestanden gemaakt, %d fouten, %d overgeslagen."
+
+#: packerform.pas:1404
+msgid "%d fertig, %d Fehler, %d übersprungen."
+msgstr "%d klaar, %d fouten, %d overgeslagen."
+
+#: packerform.pas:1217
+msgid "%s ist %s s kürzer als %s"
+msgstr "%s is %s s korter dan %s"
+
+#: packerform.pas:1220
+msgid "%s ist %s s länger als %s"
+msgstr "%s is %s s langer dan %s"
+
+#: packerform.pas:1104
+msgid "%s „%s“"
+msgstr "%s ‘%s’"
+
+#: packerform.pas:368
+msgid "(Tags und Cover)"
+msgstr "(tags en hoes)"
+
+#: packerform.pas:583
+msgid "24 Bit / 96 kHz ist noch nicht in Traktor geprüft. Bitte zuerst mit einem Song testen."
+msgstr "24 bit / 96 kHz is nog niet getest in Traktor. Probeer eerst één nummer."
+
+#: packerform.pas:491
+msgid "5.1-DVD: „Song (DOWNMIX #1)“ + „Song (A)“ … „(D)“"
+msgstr "5.1-dvd: ‘Song (DOWNMIX #1)’ + ‘Song (A)’ … ‘(D)’"
+
+#: packerform.pas:580
+msgid "AAC 320 kbit/s (wie Traktor-Stems)"
+msgstr "AAC 320 kbit/s (zoals Traktor-stems)"
+
+#: packerform.pas:582
+msgid "ALAC 24 Bit, Original-Abtastrate (Test)"
+msgstr "ALAC 24 bit, originele samplefrequentie (test)"
+
+#: packerform.pas:581
+msgid "ALAC verlustfrei, 16 Bit / 44,1 kHz"
+msgstr "ALAC verliesvrij, 16 bit / 44,1 kHz"
+
+#: packerform.pas:652
+msgid "Abbrechen"
+msgstr "Annuleren"
+
+#: packerform.pas:643
+msgid "Alle packen"
+msgstr "Alles verpakken"
+
+#: packerform.pas:501
+msgid "Auch in Unterordnern suchen. Die Unterordner müssen in allen Ordnern gleich heissen."
+msgstr "Ook in submappen zoeken. De submappen moeten in alle mappen dezelfde naam hebben."
+
+#: packerform.pas:565
+msgid "Ausgabeordner (Unterordner werden übernommen)"
+msgstr "Uitvoermap (submappen blijven behouden)"
+
+#: packerform.pas:1666
+msgid "Ausgabeordner wählen"
+msgstr "Uitvoermap kiezen"
+
+#: packerform.pas:380
+msgid "Beispiel: „* (A)“ findet „Hello (A).wav“, der Song heisst dann „Hello“."
+msgstr "Voorbeeld: ‘* (A)’ vindt ‘Hello (A).wav’, het nummer heet dan ‘Hello’."
+
+#: packerform.pas:1046
+msgid "Bitte einen Ausgabeordner angeben (oder „neben die Master-Datei“ wählen)."
+msgstr "Geef een uitvoermap op (of kies ‘naast het masterbestand’)."
+
+#: packerform.pas:1495
+msgid "Bitte im nächsten Fenster die ffmpeg.exe auswählen (z. B. aus StemMaker\\tools\\)."
+msgstr "Kies in het volgende venster ffmpeg.exe (bijv. uit StemMaker\\tools\\)."
+
+#: packerform.pas:1716 packerform.pas:1802
+msgid "Breche ab ..."
+msgstr "Bezig met annuleren ..."
+
+#: packerform.pas:598
+msgid "Cover aus dem Ordner, wenn die Datei keins hat"
+msgstr "Hoes uit de map als het bestand er geen heeft"
+
+#: packerform.pas:492
+msgid "DAW-Export: „Song“ + „Song_drums“ … „_vocals“"
+msgstr "DAW-export: ‘Song’ + ‘Song_drums’ … ‘_vocals’"
+
+#: packerform.pas:1736
+msgid "Danke an Cuiusquemodi für die Idee, den Test mit 178 Songs und die vielen Rückmeldungen."
+msgstr "Dank aan Cuiusquemodi voor het idee, de test met 178 nummers en de vele reacties."
+
+#: packerform.pas:682
+msgid "Dateien"
+msgstr "Bestanden"
+
+#: packerform.pas:379
+msgid "Dateiname ohne Endung, * steht für den Songnamen."
+msgstr "Bestandsnaam zonder extensie, * staat voor de naam van het nummer."
+
+#: packerform.pas:1041
+msgid "Der Ordner von „%s“ fehlt oder existiert nicht."
+msgstr "De map van ‘%s’ ontbreekt of bestaat niet."
+
+#: packerform.pas:474
+msgid "Die Benennung wird erkannt, z. B. „Song_drums“, „Song (Vocals)“, „Song (A)“ oder „Song_1“."
+msgstr "De naamgeving wordt herkend, bijv. ‘Song_drums’, ‘Song (Vocals)’, ‘Song (A)’ of ‘Song_1’."
+
+#: packerform.pas:1416
+msgid "Die Dateien lassen sich direkt in Traktor laden. Ordner jetzt öffnen?"
+msgstr "De bestanden kun je direct in Traktor laden. Map nu openen?"
+
+#: packerform.pas:494
+msgid "Eigene Muster"
+msgstr "Eigen patronen"
+
+#: packerform.pas:857
+msgid "Erkannt: „%s“ … „%s“, %s."
+msgstr "Herkend: ‘%s’ … ‘%s’, %s."
+
+#: packerform.pas:594
+msgid "Extras:"
+msgstr "Extra’s:"
+
+#: packerform.pas:511
+msgid "Farbe"
+msgstr "Kleur"
+
+#: packerform.pas:348
+msgid "Farbe des Stems in Traktor (klicken zum Ändern)"
+msgstr "Kleur van de stem in Traktor (klik om te wijzigen)"
+
+#: packerform.pas:595
+msgid "Fehlende Stems still füllen"
+msgstr "Ontbrekende stems met stilte vullen"
+
+#: packerform.pas:1335
+msgid "Fehler: Datei konnte nicht gespeichert werden"
+msgstr "Fout: bestand kon niet worden opgeslagen"
+
+#: packerform.pas:1329
+msgid "Fehler: Ergebnis hat nicht 5 Spuren"
+msgstr "Fout: resultaat heeft geen 5 sporen"
+
+#: packerform.pas:1323
+msgid "Fehler: Stem-Block"
+msgstr "Fout: stem-blok"
+
+#: packerform.pas:1310
+msgid "Fehler: ffmpeg Code %d (siehe Log)"
+msgstr "Fout: ffmpeg code %d (zie log)"
+
+#: packerform.pas:596
+msgid "Fehlt ein Stem, wird eine stille Spur eingesetzt, statt den Song zu überspringen."
+msgstr "Ontbreekt er een stem, dan wordt een stil spoor gebruikt in plaats van het nummer over te slaan."
+
+#: packerform.pas:572
+msgid "Format:"
+msgstr "Formaat:"
+
+#: packerform.pas:1738
+msgid "Frei unter der MIT-Lizenz. Enthält ffmpeg (LGPL)."
+msgstr "Vrij onder de MIT-licentie. Bevat ffmpeg (LGPL)."
+
+#: packerform.pas:471
+msgid "Für Benennungen, die nicht erkannt werden: Ordner, Namensmuster, Stem-Namen und Farben je Spur selbst eintragen."
+msgstr "Voor naamgeving die niet wordt herkend: vul per spoor zelf map, naampatroon, stemnaam en kleur in."
+
+#: packerform.pas:497
+msgid "Für Spuren ohne fertigen Master: die vier Stems werden ohne Pegeländerung zusammengemischt."
+msgstr "Voor sporen zonder kant-en-klare master: de vier stems worden zonder niveauwijziging samengemixt."
+
+#: packerform.pas:599
+msgid "Hat die Master-Datei kein Cover, wird cover.jpg, folder.jpg, front.jpg oder <Song>.jpg aus ihrem Ordner genommen."
+msgstr "Heeft het masterbestand geen hoes, dan wordt cover.jpg, folder.jpg, front.jpg of <nummer>.jpg uit de map gebruikt."
+
+#: packerform.pas:1035
+msgid "Im Muster von „%s“ fehlt der Stern * für den Songnamen."
+msgstr "In het patroon van ‘%s’ ontbreekt de ster * voor de naam van het nummer."
+
+#: packerform.pas:667
+msgid "Info"
+msgstr "Info"
+
+#: packerform.pas:610 packerform.pas:1753
+msgid "Kaffee spendieren"
+msgstr "Trakteer op koffie"
+
+#: packerform.pas:1157
+msgid "Keine Songs gefunden. Ordner und Muster prüfen (Stern * = Songname)."
+msgstr "Geen nummers gevonden. Controleer mappen en patronen (ster * = naam van het nummer)."
+
+#: packerform.pas:799
+msgid "Keine bekannte Benennung gefunden. Bitte Ordner und Muster selbst einstellen."
+msgstr "Geen bekende naamgeving gevonden. Stel mappen en patronen zelf in."
+
+#: packerform.pas:660
+msgid "Log anzeigen"
+msgstr "Log tonen"
+
+#: packerform.pas:1198
+msgid "Längen prüfen"
+msgstr "Lengtes controleren"
+
+#: packerform.pas:1413
+msgid "Längen-Warnung bei %d Song(s): eine Spur ist kürzer oder länger als der Rest (siehe Liste). Bitte in Traktor anhören, ob alles zusammenpasst."
+msgstr "Lengtewaarschuwing bij %d nummer(s): een spoor is korter of langer dan de rest (zie lijst). Luister in Traktor of alles gelijk loopt."
+
+#: packerform.pas:312
+msgid "Master"
+msgstr "Master"
+
+#: packerform.pas:853
+msgid "Master aus den Stems gemischt"
+msgstr "master uit de stems gemixt"
+
+#: packerform.pas:496
+msgid "Master aus den Stems mischen"
+msgstr "Master uit de stems mixen"
+
+#: packerform.pas:855
+msgid "Master „%s“"
+msgstr "master ‘%s’"
+
+#: packerform.pas:359
+msgid "Name des Stems, so zeigt ihn Traktor an"
+msgstr "Naam van de stem, zoals Traktor hem toont"
+
+#: packerform.pas:515
+msgid "Namensmuster (* = Songname)"
+msgstr "Naampatroon (* = naam van het nummer)"
+
+#: packerform.pas:493
+msgid "Nummern: „Song_0“ (Master) bis „Song_4“"
+msgstr "Nummers: ‘Song_0’ (master) tot ‘Song_4’"
+
+#: packerform.pas:517
+msgid "Ordner"
+msgstr "Map"
+
+#: packerform.pas:400
+msgid "Ordner mit den Master-Dateien"
+msgstr "Map met de masterbestanden"
+
+#: packerform.pas:464
+msgid "Ordner mit den Spuren hier hineinziehen"
+msgstr "Sleep de map met je sporen hierheen"
+
+#: packerform.pas:252
+msgid "Ordner mit den Spuren hineinziehen oder „Ordner wählen …“ klicken."
+msgstr "Sleep de map met je sporen hierheen of klik op ‘Map kiezen …’."
+
+#: packerform.pas:1624
+msgid "Ordner mit den Spuren wählen"
+msgstr "Map met je sporen kiezen"
+
+#: packerform.pas:721
+msgid "Ordner mit den Stems"
+msgstr "Map met de stems"
+
+#: packerform.pas:250
+msgid "Ordner und Muster einstellen, dann „Songs suchen“."
+msgstr "Stel mappen en patronen in en kies dan ‘Nummers zoeken’."
+
+#: packerform.pas:468
+msgid "Ordner und Muster selbst einstellen"
+msgstr "Mappen en patronen zelf instellen"
+
+#: packerform.pas:392 packerform.pas:1649
+msgid "Ordner wählen"
+msgstr "Map kiezen"
+
+#: packerform.pas:461
+msgid "Ordner wählen …"
+msgstr "Map kiezen …"
+
+#: packerform.pas:1300
+msgid "Packe %s"
+msgstr "Bezig met %s"
+
+#: packerform.pas:1734
+msgid "Packt fertige Einzelspuren (Master und 4 Stems) ohne KI-Trennung zu Traktor-Stem-Dateien."
+msgstr "Verpakt kant-en-klare losse sporen (master en 4 stems) zonder AI-scheiding tot Traktor-stembestanden."
+
+#: packerform.pas:681
+msgid "Song"
+msgstr "Nummer"
+
+#: packerform.pas:1390
+msgid "Song %d von %d: %s"
+msgstr "Nummer %d van %d: %s"
+
+#: packerform.pas:635
+msgid "Songs suchen"
+msgstr "Nummers zoeken"
+
+#: packerform.pas:586
+msgid "Sonst werden Songs übersprungen, deren Stem-Datei es schon gibt."
+msgstr "Anders worden nummers overgeslagen waarvan het stem-bestand al bestaat."
+
+#: packerform.pas:510
+msgid "Spur"
+msgstr "Spoor"
+
+#: packerform.pas:683
+msgid "Status"
+msgstr "Status"
+
+#: packerform.pas:313
+msgid "Stem %d"
+msgstr "Stem %d"
+
+#: packerform.pas:513
+msgid "Stem-Name"
+msgstr "Stemnaam"
+
+#: packerform.pas:1268
+msgid "Tags lesen"
+msgstr "Tags lezen"
+
+#: packerform.pas:500
+msgid "Unterordner durchsuchen"
+msgstr "Submappen doorzoeken"
+
+#: packerform.pas:585
+msgid "Vorhandene überschreiben"
+msgstr "Bestaande overschrijven"
+
+#: packerform.pas:485
+msgid "Vorlage:"
+msgstr "Sjabloon:"
+
+#: packerform.pas:684
+msgid "Ziel"
+msgstr "Doel"
+
+#: packerform.pas:535
+msgid "Ziel:"
+msgstr "Doel:"
+
+#: packerform.pas:1304
+msgid "abgebrochen"
+msgstr "geannuleerd"
+
+#: packerform.pas:1147
+msgid "bereit"
+msgstr "klaar"
+
+#: packerform.pas:1145
+msgid "bereit, still gefüllt: "
+msgstr "klaar, met stilte gevuld: "
+
+#: packerform.pas:1210
+msgid "der Master"
+msgstr "de master"
+
+#: packerform.pas:1210
+msgid "die längste Spur"
+msgstr "het langste spoor"
+
+#: packerform.pas:1139
+msgid "fehlt: "
+msgstr "ontbreekt: "
+
+#: packerform.pas:1345
+msgid "fertig"
+msgstr "klaar"
+
+#: packerform.pas:1341
+msgid "fertig, Achtung: "
+msgstr "klaar, let op: "
+
+#: packerform.pas:230
+msgid "fertige Spuren zu Stem-Dateien packen"
+msgstr "kant-en-klare sporen tot stem-bestanden verpakken"
+
+#: packerform.pas:248
+msgid "ffmpeg.exe nicht gefunden - wird beim ersten Gebrauch abgefragt."
+msgstr "ffmpeg.exe niet gevonden - wordt bij het eerste gebruik gevraagd."
+
+#: packerform.pas:1494
+msgid "ffmpeg.exe wurde nicht gefunden."
+msgstr "ffmpeg.exe is niet gevonden."
+
+#: packerform.pas:1141
+msgid "gibt es schon, wird übersprungen"
+msgstr "bestaat al, wordt overgeslagen"
+
+#: packerform.pas:552
+msgid "in diesen Ordner:"
+msgstr "in deze map:"
+
+#: packerform.pas:402 packerform.pas:723
+msgid "leer = wie Master"
+msgstr "leeg = zoals master"
+
+#: packerform.pas:404
+msgid "leer = wie Stem %d"
+msgstr "leeg = zoals stem %d"
+
+#: packerform.pas:542
+msgid "neben die Master-Datei"
+msgstr "naast het masterbestand"
+
+#: packerform.pas:1298
+msgid "wird gepackt ..."
+msgstr "bezig met verpakken ..."
+
+#: packerform.pas:1106
+msgid "ähnlich: „%s“"
+msgstr "lijkt op: ‘%s’"
+

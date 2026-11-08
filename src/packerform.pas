@@ -9,7 +9,11 @@
   der DAW, aus 5.1-DVDs oder aus einem anderen Trennprogramm) ergeben
   eine <Song>.stem.mp4.
 
-  Bedienung:
+  Bedienung (Einfach-Modus, Standard):
+    Ordner hineinziehen oder „Ordner wählen …“. Die Benennung der Dateien
+    wird erkannt, die Songs erscheinen in der Liste, dann „Alle packen“.
+
+  Bedienung mit „Ordner und Muster selbst einstellen“:
     1. Vorlage wählen (oder eigene Muster eintragen) und die Ordner der
        Spuren angeben. Stern * im Muster = Songname.
     2. "Songs suchen" zeigt jeden Song mit den gefundenen Dateien.
@@ -30,6 +34,10 @@
                        in der Liste; Längenprüfung (Spur kürzer/länger als
                        der Master); Info-Knopf mit Dank an Cuiusquemodi;
                        gewählte Zeile zeigt den ganzen Status unten
+    0.3  (07.11.2026)  Einfach-Modus: Ordner hineinziehen oder wählen, die
+                       Benennung wird erkannt (packdetect.pas); Ordner und
+                       Muster selbst einstellen bleibt als Häkchen; neun
+                       Sprachen wie StemMaker
   ============================================================================ }
 unit packerform;
 
@@ -41,11 +49,11 @@ uses
   Classes, SysUtils, Math, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ExtCtrls, ComCtrls, LCLType, LCLIntf, FileUtil, LazFileUtils, LazUTF8,
   IniFiles, UTF8Process, Process,
-  uLang, uStemMP4, uStatusDraw, uSkalierung, packmatch, packjob;
+  uLang, uStemMP4, uStatusDraw, uSkalierung, packmatch, packjob, packdetect;
 
 const
   APP_TITLE = 'Elospeed StemPacker';
-  APP_VER   = '0.2';
+  APP_VER   = '0.3';
   KOFI_URL  = 'https://ko-fi.com/elospeed';
   PAGE_URL  = 'https://elospeed.github.io/StemPacker/';
 
@@ -66,6 +74,13 @@ type
   TPackerForm = class(TForm)
   private
     FRows      : array[0..ROLE_COUNT - 1] of TRoleRow;
+    FSimple    : TPanel;     // Einfach-Modus: Ordner ziehen oder wählen
+    FBtnPick   : TButton;    // „Ordner wählen …“
+    FDetect    : TLabel;     // was erkannt wurde
+    FChkExpert : TCheckBox;  // Ordner und Muster selbst einstellen
+    FPTop      : TPanel;     // Vorlage + Schalter (nur im erweiterten Modus)
+    FHead      : TPanel;     // Spaltenüberschriften der fünf Zeilen
+    FOptPanels : array[0..2] of TPanel;  // Ziel, Format, Extras (für die Reihenfolge)
     FCbPreset  : TComboBox;
     FChkMix    : TCheckBox;
     FChkSub    : TCheckBox;
@@ -102,6 +117,8 @@ type
     function  RoleCaption(Role: Integer): string;
     procedure ApplyPreset(Idx: Integer);
     procedure UpdateEnabled;
+    procedure ShowExpert;
+    procedure RunDetect(const Folder: string);
     function  IniFileName: string;
     procedure LoadSettings;
     procedure SaveSettings;
@@ -126,6 +143,8 @@ type
     procedure PresetChange(Sender: TObject);
     procedure PatternChange(Sender: TObject);
     procedure MixClick(Sender: TObject);
+    procedure ExpertClick(Sender: TObject);
+    procedure BtnPickClick(Sender: TObject);
     procedure OutModeClick(Sender: TObject);
     procedure BrowseClick(Sender: TObject);
     procedure BtnOutClick(Sender: TObject);
@@ -227,12 +246,19 @@ begin
   Log(Format('=== %s %s ===  ffmpeg: %s', [APP_TITLE, APP_VER, FFFmpeg]));
   if FFFmpeg = '' then
     FStatus.Caption := _('ffmpeg.exe nicht gefunden - wird beim ersten Gebrauch abgefragt.')
+  else if FChkExpert.Checked then
+    FStatus.Caption := _('Ordner und Muster einstellen, dann „Songs suchen“.')
   else
-    FStatus.Caption := _('Ordner und Muster einstellen, dann „Songs suchen“.');
+    FStatus.Caption := _('Ordner mit den Spuren hineinziehen oder „Ordner wählen …“ klicken.');
 
   { Ordner von der Befehlszeile (z. B. aus StemMaker) = Master-Ordner }
   if (ParamCount >= 1) and DirectoryExistsUTF8(ParamStr(1)) then
-    FRows[0].Folder.Text := ExcludeTrailingPathDelimiter(ParamStr(1));
+  begin
+    if FChkExpert.Checked then
+      FRows[0].Folder.Text := ExcludeTrailingPathDelimiter(ParamStr(1))
+    else
+      RunDetect(ExcludeTrailingPathDelimiter(ParamStr(1)));
+  end;
 end;
 
 destructor TPackerForm.Destroy;
@@ -380,7 +406,7 @@ end;
 
 procedure TPackerForm.BuildUI;
 var
-  PTop, Head, Opt, Opt2, Opt3, Bottom, Foot: TPanel;
+  PTop, Head, Opt, Opt2, Opt3, Bottom, Foot, SRow1, SRow2: TPanel;
   L: TLabel;
   r: Integer;
 
@@ -420,8 +446,39 @@ var
   end;
 
 begin
+  { --- Einfach-Modus: Ordner ziehen oder wählen ------------------------ }
+  FSimple := NewPanel(Self, alTop, 64, 0);
+  FSimple.BorderSpacing.Left := Scale96ToForm(10);
+  FSimple.BorderSpacing.Right := Scale96ToForm(10);
+  FSimple.BorderSpacing.Top := Scale96ToForm(8);
+  FSimple.BevelOuter := bvLowered;
+  SRow1 := NewPanel(FSimple, alTop, 32, 0);
+  FBtnPick := TButton.Create(Self);
+  FBtnPick.Parent := SRow1;
+  FBtnPick.Align := alRight;
+  FBtnPick.Width := Scale96ToForm(150);
+  FBtnPick.BorderSpacing.Around := Scale96ToForm(3);
+  FBtnPick.Caption := _('Ordner wählen …');
+  FBtnPick.Font.Style := [fsBold];
+  FBtnPick.OnClick := @BtnPickClick;
+  L := NewLabel(SRow1, _('Ordner mit den Spuren hier hineinziehen'), alClient, 100);
+  L.Font.Style := [fsBold];
+  L.BorderSpacing.Left := Scale96ToForm(8);
+  SRow2 := NewPanel(FSimple, alClient, 28, 100);
+  FChkExpert := NewCheck(SRow2, _('Ordner und Muster selbst einstellen'), 4000, alRight);
+  FChkExpert.BorderSpacing.Top := Scale96ToForm(3);
+  FChkExpert.BorderSpacing.Right := Scale96ToForm(8);
+  FChkExpert.Hint := _('Für Benennungen, die nicht erkannt werden: Ordner, Namensmuster, Stem-Namen und Farben je Spur selbst eintragen.');
+  FChkExpert.ShowHint := True;
+  FChkExpert.OnClick := @ExpertClick;
+  FDetect := NewLabel(SRow2, _('Die Benennung wird erkannt, z. B. „Song_drums“, „Song (Vocals)“, „Song (A)“ oder „Song_1“.'), alClient, 100);
+  FDetect.BorderSpacing.Left := Scale96ToForm(8);
+  FDetect.Font.Color := clGrayText;
+  FDetect.ShowHint := True;
+
   { --- oben: Vorlage + Schalter --------------------------------------- }
-  PTop := NewPanel(Self, alTop, 34, 0);
+  PTop := NewPanel(Self, alTop, 34, 50);
+  FPTop := PTop;
   PTop.BorderSpacing.Left := Scale96ToForm(10);
   PTop.BorderSpacing.Right := Scale96ToForm(10);
   PTop.BorderSpacing.Top := Scale96ToForm(6);
@@ -446,6 +503,7 @@ begin
 
   { --- Überschriften der Spalten -------------------------------------- }
   Head := NewPanel(Self, alTop, 22, 100);
+  FHead := Head;
   Head.BorderSpacing.Left := Scale96ToForm(10);
   Head.BorderSpacing.Right := Scale96ToForm(10);
   Head.BorderSpacing.Top := Scale96ToForm(6);
@@ -470,6 +528,7 @@ begin
 
   { --- Ziel ----------------------------------------------------------- }
   Opt := NewPanel(Self, alTop, 32, 300);
+  FOptPanels[0] := Opt;
   Opt.BorderSpacing.Left := Scale96ToForm(10);
   Opt.BorderSpacing.Right := Scale96ToForm(10);
   Opt.BorderSpacing.Top := Scale96ToForm(10);
@@ -507,6 +566,7 @@ begin
 
   { --- Format und Schalter -------------------------------------------- }
   Opt2 := NewPanel(Self, alTop, 32, 400);
+  FOptPanels[1] := Opt2;
   Opt2.BorderSpacing.Left := Scale96ToForm(10);
   Opt2.BorderSpacing.Right := Scale96ToForm(10);
   NewLabel(Opt2, _('Format:'), alLeft, 64).Font.Style := [fsBold];
@@ -528,6 +588,7 @@ begin
 
   { --- Extras --------------------------------------------------------- }
   Opt3 := NewPanel(Self, alTop, 30, 500);
+  FOptPanels[2] := Opt3;
   Opt3.BorderSpacing.Left := Scale96ToForm(10);
   Opt3.BorderSpacing.Right := Scale96ToForm(10);
   NewLabel(Opt3, _('Extras:'), alLeft, 64).Font.Style := [fsBold];
@@ -671,6 +732,8 @@ begin
     FRows[r].ColorBox.Enabled := not FBusy;
   end;
   FCbPreset.Enabled := not FBusy;
+  FBtnPick.Enabled := not FBusy;
+  FChkExpert.Enabled := not FBusy;
   FChkMix.Enabled := not FBusy;
   FChkSub.Enabled := not FBusy;
   FRbNext.Enabled := not FBusy;
@@ -682,6 +745,123 @@ begin
   FBtnScan.Enabled := not FBusy;
   FBtnStart.Enabled := not FBusy;
   FBtnCancel.Enabled := FBusy;
+end;
+
+{ Erweiterte Einstellungen (Vorlage, fünf Zeilen) zeigen oder verstecken.
+  Danach bekommen alle alTop-Panels der Reihe nach aufsteigende Top-Werte,
+  sonst landen die wieder sichtbaren Zeilen unter „Ziel“ und „Format“. }
+procedure TPackerForm.ShowExpert;
+var
+  r: Integer;
+  B: Boolean;
+begin
+  B := FChkExpert.Checked;
+  DisableAlign;
+  try
+    FPTop.Visible := B;
+    FHead.Visible := B;
+    for r := 0 to ROLE_COUNT - 1 do
+      FRows[r].Panel.Visible := B;
+    { Reihenfolge von oben: Einfach, Vorlage, Überschriften, fünf Zeilen,
+      Ziel, Format, Extras }
+    FSimple.Top := 0;
+    FPTop.Top := 1;
+    FHead.Top := 2;
+    for r := 0 to ROLE_COUNT - 1 do
+      FRows[r].Panel.Top := 3 + r;
+    for r := 0 to High(FOptPanels) do
+      FOptPanels[r].Top := 3 + ROLE_COUNT + r;
+  finally
+    EnableAlign;
+  end;
+end;
+
+{ Einfach-Modus: Benennung im Ordner erkennen, die Zeilen damit füllen
+  und gleich die Songs suchen }
+procedure TPackerForm.RunDetect(const Folder: string);
+var
+  Det: TDetectResult;
+  i, r, P: Integer;
+  Same: Boolean;
+  MasterTxt: string;
+begin
+  Screen.Cursor := crHourGlass;
+  try
+    Det := DetectLayout(Folder);
+  finally
+    Screen.Cursor := crDefault;
+  end;
+  if Det.Kind = dkNone then
+  begin
+    Log('Erkennung: keine bekannte Benennung in ' + Folder);
+    FreeSongs(FSongs);
+    FList.Items.Clear;
+    FDetect.Caption := _('Keine bekannte Benennung gefunden. Bitte Ordner und Muster selbst einstellen.');
+    FDetect.Font.Color := clRed;
+    FStatus.Caption := FDetect.Caption;
+    { Zeilen zeigen, der Ordner steht schon beim Master }
+    FLoading := True;
+    try
+      for r := 0 to ROLE_COUNT - 1 do FRows[r].Folder.Text := '';
+      FRows[0].Folder.Text := Folder;
+      FChkMix.Checked := False;
+      FChkSub.Checked := False;
+    finally
+      FLoading := False;
+    end;
+    FChkExpert.Checked := True;
+    ShowExpert;
+    UpdateEnabled;
+    Exit;
+  end;
+
+  { gleiche Muster wie eine Vorlage? Dann diese anzeigen, sonst „Eigene“ }
+  P := PRESET_CUSTOM;
+  for i := Low(PRESETS) to High(PRESETS) do
+  begin
+    Same := True;
+    for r := 0 to ROLE_COUNT - 1 do
+      if not ((r = 0) and Det.Rules.MixMaster) and
+         (UTF8LowerCase(PRESETS[i].Patterns[r]) <> UTF8LowerCase(Det.Rules.Patterns[r])) then
+        Same := False;
+    if Same then begin P := i; Break; end;
+  end;
+
+  FLoading := True;
+  try
+    { Stem-Namen und Farben: 5.1-DVD wie die DVD-Vorlage, sonst wie StemMaker }
+    if Det.Kind = dkDvd then i := 0 else i := 1;
+    for r := 1 to ROLE_COUNT - 1 do
+    begin
+      FRows[r].StemName.Text := PRESETS[i].Names[r];
+      FRows[r].ColorBox.Color := HexToColor(PRESETS[i].Colors[r]);
+    end;
+    for r := 0 to ROLE_COUNT - 1 do
+    begin
+      FRows[r].Folder.Text := Det.Rules.Folders[r];
+      FRows[r].Pattern.Text := Det.Rules.Patterns[r];
+    end;
+    FChkMix.Checked := Det.Rules.MixMaster;
+    FChkSub.Checked := Det.Rules.SubFolders;
+    FCbPreset.ItemIndex := P;
+  finally
+    FLoading := False;
+  end;
+  UpdateEnabled;
+
+  if Det.Rules.MixMaster then
+    MasterTxt := _('Master aus den Stems gemischt')
+  else
+    MasterTxt := Format(_('Master „%s“'), [ExpectedName(Det.Rules.Patterns[0], 'Song')]);
+  FDetect.Font.Color := clGrayText;
+  FDetect.Caption := Format(_('Erkannt: „%s“ … „%s“, %s.'),
+    [ExpectedName(Det.Rules.Patterns[1], 'Song'), ExpectedName(Det.Rules.Patterns[4], 'Song'), MasterTxt]);
+  FDetect.Hint := Folder;
+  Log(Format('Erkennung: %s -> %s | %s | %s | %s | %s (mischen %s, Unterordner %s)',
+    [Folder, Det.Rules.Patterns[0], Det.Rules.Patterns[1], Det.Rules.Patterns[2],
+     Det.Rules.Patterns[3], Det.Rules.Patterns[4],
+     BoolToStr(Det.Rules.MixMaster, True), BoolToStr(Det.Rules.SubFolders, True)]));
+  if CheckInput(True) then BtnScanClick(nil);
 end;
 
 { StemPacker.ini neben der exe, bei schreibgeschütztem Ordner (Setup unter
@@ -733,6 +913,7 @@ begin
       FChkFill.Checked := Ini.ReadBool('Ziel', 'StilleFuellen', False);
       FChkCover.Checked := Ini.ReadBool('Ziel', 'CoverAusOrdner', True);
       FChkOver.Checked := Ini.ReadBool('Ziel', 'Ueberschreiben', False);
+      FChkExpert.Checked := Ini.ReadBool('Ansicht', 'SelbstEinstellen', False);
       { Fenstergrösse in 96-dpi-Einheiten }
       W := Ini.ReadInteger('Fenster', 'Breite96', 0);
       H := Ini.ReadInteger('Fenster', 'Hoehe96', 0);
@@ -749,6 +930,7 @@ begin
     FCbFormat.ItemIndex := 0;
   end;
   FLoading := False;
+  ShowExpert;
 end;
 
 procedure TPackerForm.SaveSettings;
@@ -778,6 +960,7 @@ begin
       Ini.WriteBool('Ziel', 'StilleFuellen', FChkFill.Checked);
       Ini.WriteBool('Ziel', 'CoverAusOrdner', FChkCover.Checked);
       Ini.WriteBool('Ziel', 'Ueberschreiben', FChkOver.Checked);
+      Ini.WriteBool('Ansicht', 'SelbstEinstellen', FChkExpert.Checked);
       if WindowState = wsNormal then
       begin
         Ini.WriteInteger('Fenster', 'Breite96', MulDiv(ClientWidth, 96, PixelsPerInch));
@@ -1425,6 +1608,31 @@ begin
   UpdateEnabled;
 end;
 
+procedure TPackerForm.ExpertClick(Sender: TObject);
+begin
+  if FLoading then Exit;
+  ShowExpert;
+end;
+
+procedure TPackerForm.BtnPickClick(Sender: TObject);
+var
+  Dlg: TSelectDirectoryDialog;
+begin
+  if FBusy then Exit;
+  Dlg := TSelectDirectoryDialog.Create(nil);
+  try
+    Dlg.Title := _('Ordner mit den Spuren wählen');
+    if DirectoryExistsUTF8(FDetect.Hint) then
+      Dlg.InitialDir := FDetect.Hint
+    else if DirectoryExistsUTF8(FRows[0].Folder.Text) then
+      Dlg.InitialDir := FRows[0].Folder.Text;
+    if Dlg.Execute then
+      RunDetect(ExcludeTrailingPathDelimiter(Dlg.FileName));
+  finally
+    Dlg.Free;
+  end;
+end;
+
 procedure TPackerForm.OutModeClick(Sender: TObject);
 begin
   UpdateEnabled;
@@ -1572,6 +1780,14 @@ begin
   if FBusy or (Length(FileNames) = 0) then Exit;
   P := FileNames[0];
   if not DirectoryExistsUTF8(P) then P := ExtractFileDir(P);
+  P := ExcludeTrailingPathDelimiter(P);
+  { Einfach-Modus: Benennung erkennen. Mit „selbst einstellen“ wie bisher:
+    der Ordner kommt in die erste Zeile. }
+  if not FChkExpert.Checked then
+  begin
+    RunDetect(P);
+    Exit;
+  end;
   if FChkMix.Checked then Role := 1 else Role := 0;
   FRows[Role].Folder.Text := ExcludeTrailingPathDelimiter(P);
   if CheckInput(True) then BtnScanClick(nil);

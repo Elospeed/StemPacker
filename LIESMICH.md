@@ -1,4 +1,4 @@
-# Elospeed StemPacker 0.2
+# Elospeed StemPacker 0.3
 
 **von Elospeed**
 
@@ -8,18 +8,19 @@ Macht aus **fertigen Einzelspuren Traktor-Stem-Dateien** (`*.stem.mp4`), **ohne 
 
 Der StemPacker gehört zur Familie von [Elospeed StemMaker](https://github.com/Elospeed/StemMaker). StemMaker *trennt* Musik mit KI in Stems, der StemPacker *verpackt* Stems, die es schon gibt.
 
-> **Stand:** Version 0.2, mit 178 Songs in Traktor Pro 4 getestet. Bitte mit Kopien der eigenen Dateien arbeiten.
+> **Stand:** Version 0.3, Version 0.1 mit 178 Songs in Traktor Pro 4 getestet. Bitte mit Kopien der eigenen Dateien arbeiten.
 
 ## Funktionen
 
-- **Ordner und Namensmuster je Spur:** der Stern `*` steht für den Songnamen. Beispiel 5.1-DVD: Master `* (DOWNMIX #1)` in Ordner 1, Stems `* (A)` … `* (D)` in Ordner 2. Beispiel DAW-Export: Master `*`, Stems `*_drums`, `*_bass`, `*_other`, `*_vocals` im selben Ordner.
+- **Einfach-Modus:** einen Ordner aufs Fenster ziehen. Der StemPacker erkennt die Benennung selbst (`Song_drums`, `Song - Bass`, `Song (Vocals)`, `Song (A)` … `(D)`, `Song_1` … `_4` und mehr) und findet Master und Stems, auch in getrennten Unterordnern. Ohne Master-Datei wird der Master aus den Stems gemischt.
+- **Oder selbst einstellen – Ordner und Namensmuster je Spur:** der Stern `*` steht für den Songnamen. Beispiel 5.1-DVD: Master `* (DOWNMIX #1)` in Ordner 1, Stems `* (A)` … `* (D)` in Ordner 2. Beispiel DAW-Export: Master `*`, Stems `*_drums`, `*_bass`, `*_other`, `*_vocals` im selben Ordner.
 - **Vorlagen:** 5.1-DVD, DAW-Export, Nummern, Eigene. Unterordner auf Wunsch.
 - **Eigene Stem-Namen und Farben**, die Traktor direkt anzeigt.
 - **Tags und Cover vom Master** (Titel, Interpret, Album, BPM, Tonart, Label, ISRC …). Ohne Titel gilt der Songname. Cover aus dem Ordner, wenn der Master keins hat.
 - **Formate:** AAC 320 kbit/s (wie Traktor), ALAC verlustfrei 16 Bit / 44,1 kHz, ALAC 24 Bit mit Original-Abtastrate (Test).
 - **Master aus den Stems mischen**, **fehlende Stems still füllen**, fertige Songs überschreiben oder überspringen.
 - Die Quelldateien werden nur gelesen, nie verändert. Log `logs\StemPacker.log`.
-- Deutsch, Englisch und Spanisch. Passt bei 100 % bis 200 % Windows-Skalierung.
+- Neun Sprachen: Deutsch, Englisch, Spanisch, Französisch, Portugiesisch (Brasilien), Italienisch, Japanisch, Niederländisch und Polnisch. Passt bei 100 % bis 200 % Windows-Skalierung.
 - **Hilfreiche Prüfungen:** fehlt ein Stem, zeigt die Liste den gesuchten Dateinamen und, wenn es eine gibt, eine ähnlich heissende Datei. Ist eine Spur kürzer oder länger als der Master, gibt es eine Warnung.
 
 ## Download

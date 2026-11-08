@@ -1,4 +1,4 @@
-Elospeed StemPacker 0.2  -  von Elospeed  (ko-fi.com/elospeed)
+Elospeed StemPacker 0.3  -  von Elospeed  (ko-fi.com/elospeed)
 =====================================================================
 
 Macht aus fertigen Einzelspuren Traktor-Stem-Dateien (.stem.mp4), OHNE KI
@@ -16,18 +16,24 @@ SO GEHT'S
 2. StemPacker.exe starten. Kommt "Der Computer wurde durch Windows
    geschützt" (Programm ist nicht signiert): "Weitere Informationen" ->
    "Trotzdem ausführen".
-3. Vorlage wählen oder eigene Namensmuster eintragen, dann die Ordner
-   angeben (Knopf "..." oder Ordner aufs Fenster ziehen).
-4. "Songs suchen": die Liste zeigt jeden Song, wie viele Dateien gefunden
-   wurden und was fehlt.
+3. Den Ordner mit den Spuren aufs Fenster ziehen (oder "Ordner wählen ...").
+   Der StemPacker erkennt die Benennung selbst, z. B. "Song_drums",
+   "Song - Bass", "Song (Vocals)", "Song (A)" bis "(D)" oder "Song_1" bis
+   "_4", auch wenn Master und Stems in verschiedenen Unterordnern liegen.
+   Gibt es keinen Master, wird er aus den Stems gemischt.
+   Die Liste zeigt jeden Song, wie viele Dateien gefunden wurden und was
+   fehlt.
+4. Wird nichts erkannt: Haken bei "Ordner und Muster selbst einstellen"
+   und Ordner und Namensmuster je Spur eintragen (siehe unten), dann
+   "Songs suchen".
 5. "Alle packen". Fertig: die Stem-Dateien lassen sich direkt in Traktor
    laden.
 6. Zum Anhören ohne Traktor: StemPlayer.exe starten und eine fertige
    .stem.mp4 öffnen. M / S schalten jeden Stem stumm oder solo.
 
 
-NAMENSMUSTER
-------------
+NAMENSMUSTER (Ordner und Muster selbst einstellen)
+--------------------------------------------------
 Für Master und Stem 1 bis 4 gibt es je einen Ordner und ein Muster. Der
 Stern * steht für den Songnamen, die Dateiendung gehört nicht dazu.
 Gross-/Kleinschreibung spielt keine Rolle.
