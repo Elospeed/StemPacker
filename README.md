@@ -21,6 +21,8 @@ StemPacker is part of the [Elospeed StemMaker](https://github.com/Elospeed/StemM
 - **Mix the master from the stems**, **fill missing stems with silence**, overwrite or skip finished songs.
 - **Helpful checks:** if a stem is missing, the list shows the file name it looked for and a similarly named file, if there is one. A track that is shorter or longer than the master gets a warning.
 - Your source files are only read, never changed. Log file `logs\StemPacker.log`.
+- **Light or dark (since 0.3.1):** follows Windows ("default app mode"), or StemMaker's "Theme" setting when StemMaker is installed, with a dark title bar, lists, buttons and menus (Windows 10 1809 or newer, Windows 11).
+- **Help (since 0.3.1):** the **?** button and the **F1** key open the StemPacker chapter of the illustrated [StemMaker user guide](https://elospeed.github.io/StemMaker/hilfe/en.html#stempacker).
 - Nine languages: English, German, Spanish, French, Portuguese (Brazil), Italian, Japanese, Dutch and Polish. Works at 100 % to 200 % Windows scaling.
 
 ## Download
@@ -65,3 +67,5 @@ To **Cuiusquemodi** for the idea, the test with 178 songs and lots of feedback.
 ## License
 
 MIT, see [LICENSE](LICENSE). The download ZIP contains FFmpeg (LGPL, runs as a separate program; licence and source info in `tools\`). FFmpeg is a trademark of Fabrice Bellard. Traktor is a trademark of Native Instruments; StemPacker is not affiliated with Native Instruments.
+
+The dark design uses [metadarkstyle](https://github.com/zamtmn/metadarkstyle) by Andrey Zubarev (partly based on the dark widgetset of Double Commander by Alexander Koblov), copied unchanged into `src/darkstyle/`. License: LGPL 2.1 or later with a static-linking exception (in the header of each file), which allows distributing StemPacker under MIT.

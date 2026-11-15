@@ -102,5 +102,6 @@
  "leer = wie Stem %d": "leeg = zoals stem %d",
  "neben die Master-Datei": "naast het masterbestand",
  "wird gepackt ...": "bezig met verpakken ...",
- "ähnlich: „%s“": "lijkt op: ‘%s’"
+ "ähnlich: „%s“": "lijkt op: ‘%s’",
+ "Hilfe (F1)": "Help (F1)"
 }

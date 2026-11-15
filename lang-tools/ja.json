@@ -102,5 +102,6 @@
  "leer = wie Stem %d": "空欄 = ステム %d と同じ",
  "neben die Master-Datei": "マスターファイルの隣",
  "wird gepackt ...": "パック中 ...",
- "ähnlich: „%s“": "似た名前:「%s」"
+ "ähnlich: „%s“": "似た名前:「%s」",
+ "Hilfe (F1)": "ヘルプ (F1)"
 }

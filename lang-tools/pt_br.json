@@ -102,5 +102,6 @@
  "leer = wie Stem %d": "vazio = igual ao stem %d",
  "neben die Master-Datei": "ao lado do arquivo master",
  "wird gepackt ...": "empacotando ...",
- "ähnlich: „%s“": "parecido: \"%s\""
+ "ähnlich: „%s“": "parecido: \"%s\"",
+ "Hilfe (F1)": "Ajuda (F1)"
 }
