@@ -13,6 +13,7 @@ Version 0.1 entstand als AddOn im Repository [Elospeed/StemMaker](https://github
 ### Neu
 - **Hell oder dunkel:** Der StemPacker folgt der StemMaker-Einstellung „Design“ (Automatisch wie Windows, Hell, Dunkel), ohne StemMaker dem Windows-„Standard-App-Modus“. Im dunklen Design sind Titelleiste, Listen, Knöpfe und Menüs dunkel (Windows 10 ab 1809 oder Windows 11; unter Linux hell). Umgesetzt mit der Bibliothek metadarkstyle wie in StemMaker.
 - **Hilfe:** Der Knopf **?** und die Taste **F1** öffnen das StemPacker-Kapitel der bebilderten Anleitung, aus dem Ordner `hilfe\` von StemMaker oder sonst online. Dieselbe Version steckt in StemMaker 2.4.
+- **StemPlayer 1.8.6 im ZIP** (aus StemMaker 2.4): ebenfalls mit dunkler Titelleiste und Hilfe auf F1.
 
 ### Entwicklung
 - `src/upackdesign.pas`, `src/uhilfe.pas` und `src/uwine.pas` neu (Kopien aus StemMaker), `src/ustatusdraw.pas` mit dunklen Farben auf Stand StemMaker 2.4. metadarkstyle unverändert in `src/darkstyle/` (LGPL mit Ausnahme für das Linken, siehe README). Quelltext ausführlich dokumentiert.
