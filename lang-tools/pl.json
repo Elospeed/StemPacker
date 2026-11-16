@@ -102,5 +102,6 @@
  "leer = wie Stem %d": "puste = jak stem %d",
  "neben die Master-Datei": "obok pliku master",
  "wird gepackt ...": "pakowanie ...",
- "ähnlich: „%s“": "podobny: „%s”"
+ "ähnlich: „%s“": "podobny: „%s”",
+ "Hilfe (F1)": "Pomoc (F1)"
 }

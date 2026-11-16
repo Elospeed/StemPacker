@@ -21,6 +21,8 @@ Der StemPacker gehört zur Familie von [Elospeed StemMaker](https://github.com/E
 - **Master aus den Stems mischen**, **fehlende Stems still füllen**, fertige Songs überschreiben oder überspringen.
 - Die Quelldateien werden nur gelesen, nie verändert. Log `logs\StemPacker.log`.
 - Neun Sprachen: Deutsch, Englisch, Spanisch, Französisch, Portugiesisch (Brasilien), Italienisch, Japanisch, Niederländisch und Polnisch. Passt bei 100 % bis 200 % Windows-Skalierung.
+- **Hell oder dunkel (ab 0.3.1):** wie Windows („Standard-App-Modus“), mit StemMaker wie dessen Einstellung „Design“, mit dunkler Titelleiste, dunklen Listen, Knöpfen und Menüs (Windows 10 ab 1809, Windows 11).
+- **Hilfe (ab 0.3.1):** Der Knopf **?** und die Taste **F1** öffnen das StemPacker-Kapitel der bebilderten [StemMaker-Anleitung](https://elospeed.github.io/StemMaker/hilfe/de.html#stempacker).
 - **Hilfreiche Prüfungen:** fehlt ein Stem, zeigt die Liste den gesuchten Dateinamen und, wenn es eine gibt, eine ähnlich heissende Datei. Ist eine Spur kürzer oder länger als der Master, gibt es eine Warnung.
 
 ## Download
@@ -65,3 +67,5 @@ An **Cuiusquemodi** für die Idee, den Test mit 178 Songs und viele Rückmeldung
 ## Lizenz
 
 MIT, siehe [LICENSE](LICENSE). Das Download-ZIP enthält FFmpeg (LGPL, läuft als eigenes Programm; Lizenz und Quellcode-Hinweis in `tools\`). FFmpeg ist eine Marke von Fabrice Bellard. Traktor ist eine Marke von Native Instruments; der StemPacker hat nichts mit Native Instruments zu tun.
+
+Das dunkle Design nutzt [metadarkstyle](https://github.com/zamtmn/metadarkstyle) von Andrey Zubarev (teils nach dem dunklen Widgetset von Double Commander von Alexander Koblov), unverändert in `src/darkstyle/`. Lizenz: LGPL 2.1 oder neuer mit Ausnahme für statisches Linken (im Kopf jeder Datei); damit darf der StemPacker unter MIT stehen.

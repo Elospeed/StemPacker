@@ -102,5 +102,6 @@
  "leer = wie Stem %d": "empty = same as stem %d",
  "neben die Master-Datei": "next to the master file",
  "wird gepackt ...": "packing ...",
- "ähnlich: „%s“": "similar: “%s”"
+ "ähnlich: „%s“": "similar: “%s”",
+ "Hilfe (F1)": "Help (F1)"
 }
