@@ -29,8 +29,8 @@ FFMPEG_URL="https://github.com/Elospeed/StemMaker/releases/download/ffmpeg-9.0.2
 FFMPEG_SHA="d350ded1fd523fdae90064c11b954497d2ba8f9ef3b10a2447f6717acc210af0"
 # StemPlayer kommt aus dem StemMaker-Release (eigenes Repo Elospeed/StemMaker).
 # Neue Version: URL, Prüfsumme und Pfad im ZIP hier anpassen.
-PLAYER_URL="https://github.com/Elospeed/StemMaker/releases/download/v2.2/StemMaker-2.2.zip"
-PLAYER_SHA="38654859b1a919dcfae449a7b52b242365eace88512448fd818fa564dcbf44f4"
+PLAYER_URL="https://github.com/Elospeed/StemMaker/releases/download/v2.4/StemMaker-2.4.zip"
+PLAYER_SHA="561ac4f6189d8383b7ff9cc55474f4a154150b970ca6efb6f02687898ebc085d"
 PLAYER_IN_ZIP="StemMaker/AddOns/StemPlayer.exe"
 
 ARBEIT=$(mktemp -d)
