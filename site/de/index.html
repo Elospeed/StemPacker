@@ -34,13 +34,13 @@
 <link rel="stylesheet" href="../style.css">
 
 <script>
-  // Sprache: deutscher Browser -> deutsche Seite, alle anderen bleiben hier.
-  // Wer oben die Sprache umschaltet, behält seine Wahl (gilt für alle Elospeed-Seiten).
+  // Wer oben ausdrücklich Englisch gewählt hat, kommt auf die englische Seite.
+  // Ohne eigene Wahl bleibt die deutsche Seite. Keine Weiterleitung nach Browsersprache:
+  // Suchmaschinen lesen mit englischer Sprache und würden die deutsche Seite sonst nie sehen.
   (function () {
     var wahl = null;
     try { wahl = localStorage.getItem('elospeed-lang'); } catch (e) {}
-    var browser = (navigator.languages && navigator.languages[0]) || navigator.language || '';
-    if (wahl === 'en' || (!wahl && !/^de\b/i.test(browser))) location.replace('../' + location.hash);
+    if (wahl === 'en') location.replace('../' + location.hash);
   })();
 </script>
 
