@@ -84,7 +84,7 @@
 <section class="hero">
   <div class="wrap">
     <h1>Your own stems as<br><span class="grad">Traktor stem files</span>, in batches</h1>
-    <p class="lead">StemPacker takes tracks you already have, a master and up to four stems per song, and packs them into one <code>.stem.mp4</code> that Traktor loads as a stem file. No AI, no separation: your files are used exactly as they are. Hundreds of songs in one run, from your DAW, a 5.1 DVD or another tool.</p>
+    <p class="lead">Packs a master and up to four stems per song into one <code>.stem.mp4</code> for Traktor. No AI, your files as they are, hundreds of songs in one run.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/Elospeed/StemPacker/releases/latest">⬇ Download for Windows</a>
       <a class="btn" href="https://github.com/Elospeed/StemPacker">View source on GitHub</a>
@@ -106,15 +106,14 @@
 
 <section id="features" class="alt">
   <div class="wrap">
-    <h2>Made for stems you already have</h2>
-    <p class="sub">Traktor's own Stem Creator packs one song at a time. StemPacker does the same for a whole folder.</p>
+    <h2>What StemPacker does</h2>
     <div class="grid">
-      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Drop a folder, done</h3><p>StemPacker recognises the usual naming by itself: <code>Song_drums</code>, <code>Song - Bass</code>, <code>Song (Vocals)</code>, <code>Song (A)</code> to <code>(D)</code> from a 5.1 DVD, <code>Song_1</code> to <code>_4</code> and more, even with master and stems in separate subfolders. No master? It is mixed from the stems.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Or set it up yourself</h3><p>Unusual names? Tick “Set folders and patterns myself”: a star stands for the song name, for example <code>* (DOWNMIX #1)</code> for the master and <code>* (A)</code> to <code>* (D)</code> for the stems, each in its own folder if you like. Stem names and colours are yours too, for example Front, LFE, Center and Rear.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags and cover from the master</h3><p>Title, artist, album, BPM, key, label and cover are copied from the master file. No title? The song name is used. No cover? <code>cover.jpg</code> or <code>&lt;song&gt;.jpg</code> from the folder.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC or lossless ALAC</h3><p>AAC 320 kbit/s like Traktor's own stems, ALAC lossless 16 bit, or ALAC 24 bit at the original sample rate (still in testing).</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Gaps handled</h3><p>Songs without a finished master: mix it from the stems, without changing the level. A stem missing? The list shows the file name it looked for and a similarly named file, if there is one. Fill it with silence, or skip the song. A track shorter or longer than the master gets a warning.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Listen before Traktor</h3><p>The download includes StemPlayer: open a finished file and mute or solo each stem, to check the result before it goes into your Traktor collection.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Drop a folder, done</h3><p>Recognises the usual naming by itself (<code>Song_drums</code>, <code>Song (A)</code>, …).</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Or set it up yourself</h3><p>Own patterns with a star for the song name.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags and cover from the master</h3><p>Title, artist, album, BPM, key and cover are copied over.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC or lossless ALAC</h3><p>AAC 320 kbit/s like Traktor, or ALAC 16/24 bit.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Gaps handled</h3><p>No master? Mixed from the stems. Missing stems are shown by name.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Your names and colours</h3><p>Stem names and colours of your choice, nine languages, light or dark, help on F1.</p></div>
     </div>
   </div>
 </section>
@@ -122,12 +121,10 @@
 <section id="how">
   <div class="wrap">
     <h2>How it works</h2>
-    <p class="sub">Four steps, no installation.</p>
     <ol class="steps">
-      <li><strong>Download and unzip</strong>Get <code>StemPacker-&lt;version&gt;.zip</code>, unzip it anywhere and start <code>StemPacker.exe</code>. The guide <code>StemPacker-User-Guide.pdf</code> is in the same folder.</li>
-      <li><strong>Drop your folder</strong>Drag the folder with your tracks onto the window, or click “Choose folder …”. The naming is detected by itself.</li>
-      <li><strong>Check the list</strong>The list shows every song, how many files were found and what is missing.</li>
-      <li><strong>Pack all</strong>Each song becomes <code>&lt;song&gt;.stem.mp4</code> next to the master or in a folder of your choice. Load them into Traktor Pro 4.</li>
+      <li><strong>Unzip</strong>Portable ZIP, start <code>StemPacker.exe</code>.</li>
+      <li><strong>Drop your folder</strong>The naming is detected by itself.</li>
+      <li><strong>Pack all</strong>Each song becomes <code>Song.stem.mp4</code>, ready for Traktor Pro 4.</li>
     </ol>
   </div>
 </section>
@@ -136,7 +133,7 @@
   <div class="wrap split">
     <div>
       <h2>Check the result with StemPlayer</h2>
-      <p class="sub" style="margin-bottom:0">StemPlayer is included in the download. It plays all four stems of a finished file in sync, with mute, solo and volume per stem, and shows them with the names and colours you set.</p>
+      <p class="sub" style="margin-bottom:0">Included in the download: play all stems in sync with mute, solo and volume.</p>
     </div>
     <figure class="shot">
       <div class="bar"><span>Elospeed StemPlayer</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
@@ -150,7 +147,7 @@
     <h2>Part of the StemMaker family</h2>
     <div class="family">
       <img src="img/stemmaker-icon-32.png" alt="" width="48" height="48">
-      <p><a href="https://elospeed.github.io/StemMaker/"><strong>Elospeed StemMaker</strong></a> separates your own music into stems with AI and packs them as Traktor stem files. StemPacker is for the other case: you already have the stems and only need the stem file.</p>
+      <p><a href="https://elospeed.github.io/StemMaker/"><strong>Elospeed StemMaker</strong></a> separates music into stems with AI. StemPacker is for stems you already have.</p>
     </div>
   </div>
 </section>
