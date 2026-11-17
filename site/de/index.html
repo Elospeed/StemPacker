@@ -84,7 +84,7 @@
 <section class="hero">
   <div class="wrap">
     <h1>Eigene Stems als<br><span class="grad">Traktor-Stem-Dateien</span>, im Stapel</h1>
-    <p class="lead">Der StemPacker nimmt Spuren, die du schon hast, einen Master und bis zu vier Stems pro Song, und packt sie in eine <code>.stem.mp4</code>, die Traktor als Stem-Datei lädt. Keine KI, keine Trennung: deine Dateien bleiben genau so, wie sie sind. Hunderte Songs in einem Durchgang, aus der DAW, von einer 5.1-DVD oder aus einem anderen Programm.</p>
+    <p class="lead">Packt einen Master und bis zu vier Stems pro Song in eine <code>.stem.mp4</code> für Traktor. Ohne KI, deine Dateien wie sie sind, hunderte Songs in einem Durchgang.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/Elospeed/StemPacker/releases/latest">⬇ Download für Windows</a>
       <a class="btn" href="https://github.com/Elospeed/StemPacker">Quelltext auf GitHub</a>
@@ -106,15 +106,14 @@
 
 <section id="features" class="alt">
   <div class="wrap">
-    <h2>Gemacht für Stems, die es schon gibt</h2>
-    <p class="sub">Traktors eigener Stem Creator packt einen Song nach dem anderen. Der StemPacker macht das für einen ganzen Ordner.</p>
+    <h2>Was der StemPacker kann</h2>
     <div class="grid">
-      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Ordner hineinziehen, fertig</h3><p>Der StemPacker erkennt die übliche Benennung selbst: <code>Song_drums</code>, <code>Song - Bass</code>, <code>Song (Vocals)</code>, <code>Song (A)</code> bis <code>(D)</code> von der 5.1-DVD, <code>Song_1</code> bis <code>_4</code> und mehr, auch wenn Master und Stems in getrennten Unterordnern liegen. Kein Master? Er wird aus den Stems gemischt.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Oder selbst einstellen</h3><p>Ungewöhnliche Namen? Haken bei „Ordner und Muster selbst einstellen“: ein Stern steht für den Songnamen, zum Beispiel <code>* (DOWNMIX #1)</code> für den Master und <code>* (A)</code> bis <code>* (D)</code> für die Stems, auf Wunsch jeweils in einem eigenen Ordner. Auch Stem-Namen und Farben bestimmst du, zum Beispiel Front, LFE, Center und Rear.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags und Cover vom Master</h3><p>Titel, Interpret, Album, BPM, Tonart, Label und Cover kommen aus der Master-Datei. Kein Titel? Dann gilt der Songname. Kein Cover? <code>cover.jpg</code> oder <code>&lt;Song&gt;.jpg</code> aus dem Ordner.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC oder verlustfrei ALAC</h3><p>AAC 320 kbit/s wie Traktors eigene Stems, ALAC verlustfrei 16 Bit oder ALAC 24 Bit mit der Original-Abtastrate (noch im Test).</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Lücken im Griff</h3><p>Songs ohne fertigen Master: aus den Stems mischen, ohne Pegeländerung. Ein Stem fehlt? Die Liste zeigt den gesuchten Dateinamen und, wenn es eine gibt, eine ähnlich heissende Datei. Mit Stille füllen oder den Song überspringen. Ist eine Spur kürzer oder länger als der Master, gibt es eine Warnung.</p></div>
-      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Anhören vor Traktor</h3><p>Im Download ist der StemPlayer dabei: fertige Datei öffnen, jeden Stem stumm oder solo schalten und das Ergebnis prüfen, bevor es in die Traktor-Sammlung kommt.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Ordner reinziehen, fertig</h3><p>Erkennt die üblichen Benennungen selbst (<code>Song_drums</code>, <code>Song (A)</code>, …).</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--bass)"></span>Oder selbst einstellen</h3><p>Eigene Muster mit Stern für den Songnamen.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Tags und Cover vom Master</h3><p>Titel, Interpret, Album, BPM, Tonart und Cover werden übernommen.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--vox)"></span>AAC oder verlustfrei ALAC</h3><p>AAC 320 kbit/s wie Traktor, oder ALAC 16/24 Bit.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--other)"></span>Lücken im Griff</h3><p>Kein Master? Wird aus den Stems gemischt. Fehlende Stems stehen mit Namen da.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--drums)"></span>Eigene Namen und Farben</h3><p>Stem-Namen und -Farben nach Wahl, neun Sprachen, hell oder dunkel, Hilfe auf F1.</p></div>
     </div>
   </div>
 </section>
@@ -122,12 +121,10 @@
 <section id="how">
   <div class="wrap">
     <h2>So geht's</h2>
-    <p class="sub">Vier Schritte, keine Installation.</p>
     <ol class="steps">
-      <li><strong>Herunterladen und entpacken</strong><code>StemPacker-&lt;Version&gt;.zip</code> laden, irgendwo entpacken und <code>StemPacker.exe</code> starten. Die Anleitung <code>StemPacker-User-Guide.pdf</code> liegt im selben Ordner (Englisch).</li>
-      <li><strong>Ordner hineinziehen</strong>Den Ordner mit den Spuren aufs Fenster ziehen oder „Ordner wählen …“ klicken. Die Benennung wird selbst erkannt.</li>
-      <li><strong>Liste prüfen</strong>Die Liste zeigt jeden Song, wie viele Dateien gefunden wurden und was fehlt.</li>
-      <li><strong>Alle packen</strong>Jeder Song wird zu <code>&lt;Song&gt;.stem.mp4</code> neben dem Master oder in einem Ordner deiner Wahl. In Traktor Pro 4 laden, fertig.</li>
+      <li><strong>Entpacken</strong>Portable ZIP, <code>StemPacker.exe</code> starten.</li>
+      <li><strong>Ordner reinziehen</strong>Die Benennung wird selbst erkannt.</li>
+      <li><strong>Alle packen</strong>Jeder Song wird zu <code>Song.stem.mp4</code>, bereit für Traktor Pro 4.</li>
     </ol>
   </div>
 </section>
@@ -136,7 +133,7 @@
   <div class="wrap split">
     <div>
       <h2>Ergebnis prüfen mit dem StemPlayer</h2>
-      <p class="sub" style="margin-bottom:0">Der StemPlayer ist im Download dabei. Er spielt alle vier Stems einer fertigen Datei synchron ab, mit Stumm, Solo und Lautstärke je Stem, und zeigt sie mit den eingestellten Namen und Farben.</p>
+      <p class="sub" style="margin-bottom:0">Im Download dabei: spielt alle Stems synchron, mit Stumm, Solo und Lautstärke.</p>
     </div>
     <figure class="shot">
       <div class="bar"><span>Elospeed StemPlayer</span><i class="min"></i><i class="max"></i><i class="cls"></i></div>
@@ -150,7 +147,7 @@
     <h2>Teil der StemMaker-Familie</h2>
     <div class="family">
       <img src="../img/stemmaker-icon-32.png" alt="" width="48" height="48">
-      <p><a href="https://elospeed.github.io/StemMaker/de/"><strong>Elospeed StemMaker</strong></a> trennt deine eigene Musik mit KI in Stems und packt sie als Traktor-Stem-Dateien. Der StemPacker ist für den anderen Fall: die Stems gibt es schon, es fehlt nur die Stem-Datei.</p>
+      <p><a href="https://elospeed.github.io/StemMaker/de/"><strong>Elospeed StemMaker</strong></a> trennt Musik mit KI in Stems. Der StemPacker ist für Stems, die du schon hast.</p>
     </div>
   </div>
 </section>
