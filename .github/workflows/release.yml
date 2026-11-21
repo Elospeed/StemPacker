@@ -9,7 +9,6 @@
 # 1. Prüfen: Version passt, Tag gibt es noch nicht.
 # 2. StemPacker bauen wie in build.yml, ZIP mit tools/release-zip.sh.
 # 3. Release v<Version> anlegen: Text = CHANGELOG-Abschnitt + SHA-256, ZIP dran.
-#    Kein Ko-fi- oder Spendenhinweis im Release-Text (Regel seit 2.11.2026).
 
 name: Release erstellen
 

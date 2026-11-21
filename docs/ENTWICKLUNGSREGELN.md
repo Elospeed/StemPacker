@@ -33,7 +33,7 @@ Alle Fenster müssen bei **100 %, 125 %, 150 % und 200 %** Windows-Skalierung ko
 - Keine Fremdbibliotheken mit unklarer Lizenz. Der StemPacker selbst kommt mit Free Pascal / Lazarus aus. Die Audioarbeit macht `ffmpeg.exe` als eigenes Programm (LGPL-Build aus dem StemMaker-Release `ffmpeg-9.0.2`, Prüfsumme in `tools/release-zip.sh`). Den Stem-Block (Namen, Farben) schreibt `src/ustemmp4.pas`.
 - Die Quelldateien der Benutzer (Master, Stems) werden nur gelesen, nie verändert. Neue Stem-Dateien entstehen erst als Zwischendatei, werden geprüft (5 Spuren, Stem-Block) und ersetzen erst dann eine vorhandene Datei.
 - Gemeinsame Units sind Kopien aus StemMaker (siehe [Entwicklungslog](ENTWICKLUNGSLOG.md)). Fixes dort hier nachziehen und umgekehrt.
-- Der Ko-fi-Knopf unten rechts bleibt (`DrawKofiButton` aus `src/ustatusdraw.pas`). Spenden-Hinweise und Ko-fi nie im CHANGELOG oder in Release-Beschreibungen erwähnen, auch nicht bei Vor-Releases.
+- Der Ko-fi-Knopf unten rechts bleibt (`DrawKofiButton` aus `src/ustatusdraw.pas`).
 
 ## Git und GitHub
 
