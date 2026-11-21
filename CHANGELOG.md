@@ -8,6 +8,13 @@ Version 0.1 entstand als AddOn im Repository [Elospeed/StemMaker](https://github
 
 ---
 
+## 0.4 – Linux hell oder dunkel (21. November 2026)
+
+### Neu
+- **Linux:** Mit StemMaker 2.5 unter Linux ist der StemPacker hell oder dunkel wie StemMaker, die Titelleiste ebenso.
+
+---
+
 ## 0.3.1 – Hell oder dunkel, Hilfe (15. November 2026)
 
 ### Neu
