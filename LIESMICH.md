@@ -1,4 +1,4 @@
-# Elospeed StemPacker 0.3
+# Elospeed StemPacker 0.4
 
 **von Elospeed**
 
